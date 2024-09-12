@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Caixa 2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ImagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedPasswordField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedTextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Resident.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Aula5ex1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/RoundedTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +37,12 @@
     &quot;assignee&quot;: &quot;brenohabib&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/brenohabib/OSPredial.git&quot;,
-    &quot;accountId&quot;: &quot;2929b186-76b3-4e11-a73a-1df89ebcef06&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/brenohabib/OSPredial.git",
+    "accountId": "6ace1986-d776-4268-8c85-fbad647440b9"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -54,36 +52,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LoginSystem.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Register.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RegisterMenu.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Registrar.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RoundedPanelExample.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SGOS.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Swing.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;292&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LoginSystem.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Register.executor": "Run",
+    "Application.RegisterMenu.executor": "Run",
+    "Application.Registrar.executor": "Run",
+    "Application.RoundedPanelExample.executor": "Run",
+    "Application.SGOS.executor": "Run",
+    "Application.Swing.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "292",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
@@ -118,8 +117,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -144,6 +143,7 @@
       <workItem from="1726015242558" duration="317000" />
       <workItem from="1726015570867" duration="7173000" />
       <workItem from="1726023253662" duration="2273000" />
+      <workItem from="1726138355344" duration="3874000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />

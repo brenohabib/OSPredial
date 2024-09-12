@@ -4,6 +4,10 @@ import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Register extends JFrame {
 
@@ -16,7 +20,7 @@ public class Register extends JFrame {
     private JPanel residentRegistrationPanel;
     private JTextField blockInput;
     private JTextField apartmentInput;
-    private JButton registrarButton;
+    private JButton registerButton;
     private JTextField nameInput;
     private JTextField emailInput;
     private JPasswordField passwordInput;
@@ -25,19 +29,6 @@ public class Register extends JFrame {
     private JLabel labelPortaria;
     private JLabel labelBloco;
     private JLabel labelApto;
-
-    public Register() throws HeadlessException {
-        super("Menu de Registro");
-        setContentPane(mainPanel);
-        setSize(800, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        labelPortaria.setForeground(Color.white);
-        labelBloco.setForeground(Color.white);
-        labelApto.setForeground(Color.white);
-        pack();
-        setVisible(true);
-    }
 
     private void createUIComponents() {
         frontPanel = new RoundedPanel(30);
@@ -50,8 +41,74 @@ public class Register extends JFrame {
 
         frontPanel = new RoundedPanel(30);
 
-        mainPanel = new ImagePanel("C:\\Users\\breno\\Documentos\\Estudos\\Códigos\\atividade\\src\\main\\java\\Caixa 2.png");
-        logo = new ImagePanel("C:\\Users\\breno\\Documentos\\Estudos\\Códigos\\atividade\\src\\main\\java\\Logo.png");
-        registrarButton = new RoundedButton();
+        mainPanel = new ImagePanel("src/main/java/Caixa 2.png");
+        logo = new ImagePanel("src/main/java/Logo.png");
+        registerButton = new RoundedButton();
+    }
+
+    public Register() throws HeadlessException {
+        super("Menu de Registro");
+        setContentPane(mainPanel);
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        labelPortaria.setForeground(Color.white);
+        labelBloco.setForeground(Color.white);
+        labelApto.setForeground(Color.white);
+        pack();
+        setVisible(true);
+
+        Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+
+        registerButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                registerButton.setForeground(Color.white);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                registerButton.setForeground(Color.black);
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                if (nameInput.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(mainPanel, "Por favor, preencha todos os campos");
+                    return;
+                }
+
+                Matcher emailMatcher = emailPattern.matcher(emailInput.getText());
+                if (!emailMatcher.matches()) {
+                    JOptionPane.showMessageDialog(mainPanel, "Formato de e-mail inválido.");
+                    return;
+                }
+
+                if (passwordInput.getPassword().length < 8) {
+                    JOptionPane.showMessageDialog(mainPanel, "A senha deve ter no mínimo 8 caracteres.");
+                    return;
+                }
+
+                JOptionPane.showMessageDialog(mainPanel, "Registro realizado com sucesso!");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                registerButton.setBackground(new Color(65, 103, 51));
+                registerButton.setSize(195, 48);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                registerButton.setBackground(new Color(168, 207, 69));
+                registerButton.setSize(200, 50);
+            }
+        });
     }
 }
