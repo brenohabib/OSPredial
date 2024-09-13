@@ -67,22 +67,22 @@
                       <text value="Portaria:"/>
                     </properties>
                   </component>
-                  <component id="2b1b1" class="javax.swing.JTextField" binding="lobbyInput" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="256" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <font size="28"/>
-                      <opaque value="false"/>
-                    </properties>
-                  </component>
                   <hspacer id="9f696">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
+                  <component id="2dd9c" class="javax.swing.JComboBox" binding="lobbyCB">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="256" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <focusTraversalPolicyProvider value="true"/>
+                      <focusable value="false"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <grid id="81615" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -107,24 +107,22 @@
                       <text value="Bloco:"/>
                     </properties>
                   </component>
-                  <component id="cdba5" class="javax.swing.JTextField" binding="blockInput" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <alignmentY value="0.5"/>
-                      <font size="28"/>
-                      <horizontalAlignment value="10"/>
-                      <scrollOffset value="0"/>
-                    </properties>
-                  </component>
                   <hspacer id="90d52">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
+                  <component id="324dc" class="javax.swing.JComboBox" binding="blockCB">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="200" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <focusTraversalPolicyProvider value="true"/>
+                      <focusable value="false"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <grid id="fba91" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -149,21 +147,22 @@
                       <text value="Apto.:"/>
                     </properties>
                   </component>
-                  <component id="cd100" class="javax.swing.JTextField" binding="apartmentInput" custom-create="true">
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="2" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="100" height="-1"/>
-                      </grid>
-                    </constraints>
-                    <properties>
-                      <font size="28"/>
-                    </properties>
-                  </component>
                   <hspacer id="15283">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
+                  <component id="9f2ed" class="javax.swing.JComboBox" binding="apartmentCB">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="100" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <focusTraversalPolicyProvider value="true"/>
+                      <focusable value="false"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
             </children>
@@ -256,6 +255,7 @@
                     </constraints>
                     <properties>
                       <background color="-7303028"/>
+                      <foreground color="-5657681"/>
                     </properties>
                     <border type="none"/>
                     <children>
@@ -275,7 +275,7 @@
                           </grid>
                         </constraints>
                       </hspacer>
-                      <grid id="a0a87" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                      <grid id="a0a87" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
                           <grid row="1" column="5" row-span="4" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -403,7 +403,29 @@
                           </vspacer>
                           <vspacer id="722f8">
                             <constraints>
-                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                          <component id="a2798" class="javax.swing.JButton" binding="hasAccountButton">
+                            <constraints>
+                              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <actionCommand value="já possui uma conta?"/>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="false"/>
+                              <focusPainted value="false"/>
+                              <foreground color="-5714107"/>
+                              <horizontalAlignment value="4"/>
+                              <inheritsPopupMenu value="false"/>
+                              <label value="já possui uma conta?"/>
+                              <opaque value="false"/>
+                              <text value="&amp;já possui uma conta?"/>
+                            </properties>
+                          </component>
+                          <vspacer id="23836">
+                            <constraints>
+                              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                             </constraints>
                           </vspacer>
                         </children>
