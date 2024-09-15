@@ -1,1 +1,2 @@
-name, email, password, apartment, block, lobby
+name,email,password,apartment,block,lobby
+admin,admin@admin.com,admin123,admin,admin
