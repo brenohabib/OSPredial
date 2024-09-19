@@ -46,8 +46,8 @@ public class Register extends JFrame {
         blockCB = new CustomComboBox();
         apartmentCB = new CustomComboBox();
         button = new RoundedButton();
-        mainPanel = new ImagePanel("src/main/java/Caixa 2.png");
-        logo = new ImagePanel("src/main/java/Logo.png");
+        mainPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Caixa 2.png");
+        logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
     }
 
     public Register() throws HeadlessException {
