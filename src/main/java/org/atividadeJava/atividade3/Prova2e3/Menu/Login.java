@@ -14,8 +14,6 @@ public class Login {
             if (isRegisterValid(email, name, password, mainPanel)) {
                 saveToCSV(name, email, password, lobby, block, apartment);
                 showMessage("Registro realizado com sucesso!", JOptionPane.INFORMATION_MESSAGE, mainPanel);
-            } else {
-                showMessage("Email já cadastrado!", JOptionPane.INFORMATION_MESSAGE, mainPanel);
             }
         } catch (IOException ex) {
             showMessage("Erro ao salvar o registro.", JOptionPane.ERROR_MESSAGE, mainPanel);
@@ -36,7 +34,7 @@ public class Login {
         }
     }
 
-    private boolean isLoginValid(String email, String password) throws IOException {
+    public boolean isLoginValid(String email, String password) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -49,7 +47,7 @@ public class Login {
         return false;
     }
 
-    private boolean isRegisterValid(String email, String name, String password, JPanel mainPanel) {
+    public boolean isRegisterValid(String email, String name, String password, JPanel mainPanel) {
         Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
         Matcher emailMatcher = emailPattern.matcher(email);
 
@@ -72,6 +70,7 @@ public class Login {
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
                 if (fields.length > 1 && email.equals(fields[1])) {
+                    JOptionPane.showMessageDialog(mainPanel, "Este e-mail já foi cadastrado.", "", JOptionPane.INFORMATION_MESSAGE);
                     return false;
                 }
             }

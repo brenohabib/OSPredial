@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/0809_Grêmio_Rio_Verde-removebg-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/consulte-Photoroom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/geracao nao z-Photoroom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/historico carinha sus-Photoroom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/solicite-Photoroom.png" afterDir="false" />
+    <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/circlePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/notification-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/user-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/brenohabib/OSPredial.git&quot;,
-    &quot;accountId&quot;: &quot;6ace1986-d776-4268-8c85-fbad647440b9&quot;
+    &quot;accountId&quot;: &quot;2929b186-76b3-4e11-a73a-1df89ebcef06&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -53,47 +54,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.CustomComboBox.executor": "Run",
-    "Application.LoginSystem.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Register.executor": "Run",
-    "Application.RegisterMenu.executor": "Run",
-    "Application.Registrar.executor": "Run",
-    "Application.RoundedPanelExample.executor": "Run",
-    "Application.SGOS.executor": "Run",
-    "Application.Swing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "292",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/breno/OneDrive/Documentos/Estudos/Códigos/OSPredial",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.CustomComboBox.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LoginSystem.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Register.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegisterMenu.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Registrar.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoundedPanelExample.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SGOS.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Swing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;294&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
@@ -123,8 +126,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -160,6 +163,10 @@
       <workItem from="1726787726794" duration="529000" />
       <workItem from="1726790598145" duration="2859000" />
       <workItem from="1726875292557" duration="3923000" />
+      <workItem from="1726976846872" duration="5000" />
+      <workItem from="1726977337969" duration="5696000" />
+      <workItem from="1727015141512" duration="8965000" />
+      <workItem from="1727032350962" duration="6604000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />

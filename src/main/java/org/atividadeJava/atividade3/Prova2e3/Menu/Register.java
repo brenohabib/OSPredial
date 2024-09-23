@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class Register extends JFrame {
 
@@ -18,7 +19,7 @@ public class Register extends JFrame {
     private JPanel backgroundPanel;
     private JPanel frontPanel;
     private JPanel residentRegistrationPanel;
-    private JButton button;
+    private JButton confirmButton;
     private JTextField nameInput;
     private JTextField emailInput;
     private JPasswordField passwordInput;
@@ -45,7 +46,7 @@ public class Register extends JFrame {
         lobbyCB = new CustomComboBox();
         blockCB = new CustomComboBox();
         apartmentCB = new CustomComboBox();
-        button = new RoundedButton();
+        confirmButton = new RoundedButton();
         mainPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Caixa 2.png");
         logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
     }
@@ -73,25 +74,23 @@ public class Register extends JFrame {
         for (String option : apartmentOptions) {
             apartmentCB.addItem(option);
         }
-
         pack();
         setVisible(true);
 
-        button.addMouseListener(new MouseAdapter() {
+        confirmButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                button.setForeground(Color.white);
+                confirmButton.setForeground(Color.white);
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                button.setForeground(Color.black);
+                confirmButton.setForeground(Color.black);
+                setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
                 if(onRegister) {
                     String name = nameInput.getText();
                     String email = emailInput.getText();
@@ -104,33 +103,46 @@ public class Register extends JFrame {
                     String email = emailInput.getText();
                     String password = new String(passwordInput.getPassword());
                     loginService.processLogin(email, password, mainPanel);
+                    try {
+                        if (loginService.isLoginValid(email, password)) {
+                            dispose();
+                            new Control();
+                        }
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-                button.setBackground(new Color(65, 103, 51));
-                button.setSize(195, 48);
+                confirmButton.setBackground(new Color(65, 103, 51));
+                confirmButton.setSize(195, 48);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                super.mouseReleased(e);
-                button.setBackground(new Color(168, 207, 69));
-                button.setSize(200, 50);
+                confirmButton.setBackground(new Color(168, 207, 69));
+                confirmButton.setSize(200, 50);
             }
         });
 
         hasAccountButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
                 if(onRegister) {
                     changeToLogin();
                 } else {
                     changeToRegister();
                 }
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
         });
     }
@@ -144,7 +156,7 @@ public class Register extends JFrame {
         labelApto.setVisible(false);
         hasAccountButton.setText("<html><u>não possui uma conta?</u></html>");
         mainLabel.setText("LOGIN DO RESIDENTE");
-        button.setText("Login");
+        confirmButton.setText("Login");
         namePanel.setVisible(false);
         onRegister = false;
     }
@@ -158,7 +170,7 @@ public class Register extends JFrame {
         labelApto.setVisible(true);
         hasAccountButton.setText("<html><u>já possui uma conta?</u></html>");
         mainLabel.setText("REGISTRO DE RESIDENTE");
-        button.setText("Registrar");
+        confirmButton.setText("Registrar");
         namePanel.setVisible(true);
         onRegister = true;
     }
