@@ -40,6 +40,10 @@ public class Control extends JFrame {
 
         solicitationButton.addMouseListener(new MouseAdapter() {
             @Override
+            public void mouseClicked(MouseEvent event) {
+
+            }
+            @Override
             public void mouseEntered(MouseEvent e) {
                 solicitationBackground.setBackground(Color.decode("#c6c6a6"));
                 setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -48,6 +52,14 @@ public class Control extends JFrame {
             public void mouseExited(MouseEvent e) {
                 solicitationBackground.setBackground(Color.decode("#f2f2c9"));
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                solicitationBackground.setBackground(Color.decode("#FFFFD6"));
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                solicitationBackground.setBackground(Color.decode("#c6c6a6"));
             }
         });
         consultButton.addMouseListener(new MouseAdapter() {
@@ -61,6 +73,14 @@ public class Control extends JFrame {
                 consultBackground.setBackground(Color.decode("#f2f2c9"));
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                consultBackground.setBackground(Color.decode("#FFFFD6"));
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                consultBackground.setBackground(Color.decode("#c6c6a6"));
+            }
         });
         historicButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -73,6 +93,14 @@ public class Control extends JFrame {
                 historicBackground.setBackground(Color.decode("#f2f2c9"));
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                historicBackground.setBackground(Color.decode("#FFFFD6"));
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                historicBackground.setBackground(Color.decode("#c6c6a6"));
+            }
         });
         relatoryButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -84,6 +112,14 @@ public class Control extends JFrame {
             public void mouseExited(MouseEvent e) {
                 relatoryBackground.setBackground(Color.decode("#f2f2c9"));
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                relatoryBackground.setBackground(Color.decode("#FFFFD6"));
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                relatoryBackground.setBackground(Color.decode("#c6c6a6"));
             }
         });
     }
