@@ -30,6 +30,8 @@ public class Control extends JFrame {
     private JButton button1;
     private JButton button2;
     private JPanel circlePanel;
+    private JButton button3;
+    private JButton button4;
 
     public Control() {
         setContentPane(mainPanel);

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +161,8 @@
       <workItem from="1727015141512" duration="8965000" />
       <workItem from="1727032350962" duration="6604000" />
       <workItem from="1727128542146" duration="154000" />
-      <workItem from="1727128706922" duration="1258000" />
+      <workItem from="1727128706922" duration="1681000" />
+      <workItem from="1727132730500" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />
@@ -210,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727129764917</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v0.5">
+      <option name="closed" value="true" />
+      <created>1727130077781</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727130077781</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
