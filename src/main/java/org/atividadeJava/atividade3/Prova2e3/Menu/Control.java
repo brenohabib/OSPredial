@@ -30,8 +30,12 @@ public class Control extends JFrame {
     private JButton button1;
     private JButton button2;
     private JPanel circlePanel;
-    private JButton button3;
+    private JButton confirmarButton;
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
+    private JTextArea textArea1;
     private JButton button4;
+    private JComboBox comboBox3;
 
     public Control() {
         setContentPane(mainPanel);
