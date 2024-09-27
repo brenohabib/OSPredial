@@ -89,6 +89,19 @@ public class Register extends JFrame {
                 confirmButton.setForeground(Color.black);
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                confirmButton.setBackground(new Color(65, 103, 51));
+                confirmButton.setSize(195, 48);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                confirmButton.setBackground(new Color(168, 207, 69));
+                confirmButton.setSize(200, 50);
+            }
+
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(onRegister) {
@@ -99,6 +112,7 @@ public class Register extends JFrame {
                     String block = (String) blockCB.getSelectedItem();
                     String apartment = (String) apartmentCB.getSelectedItem();
                     loginService.processRegistration(name, email, password, lobby, block, apartment, mainPanel);
+                    changeToLogin();
                 } else {
                     String email = emailInput.getText();
                     String password = new String(passwordInput.getPassword());
@@ -112,18 +126,6 @@ public class Register extends JFrame {
                         throw new RuntimeException(ex);
                     }
                 }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                confirmButton.setBackground(new Color(65, 103, 51));
-                confirmButton.setSize(195, 48);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                confirmButton.setBackground(new Color(168, 207, 69));
-                confirmButton.setSize(200, 50);
             }
         });
 

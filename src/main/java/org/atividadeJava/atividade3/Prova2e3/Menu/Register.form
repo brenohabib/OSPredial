@@ -318,7 +318,7 @@
                                   </grid>
                                 </constraints>
                                 <properties>
-                                  <margin top="2" left="9" bottom="2" right="6"/>
+                                  <margin top="2" left="2" bottom="2" right="2"/>
                                 </properties>
                               </component>
                             </children>
@@ -350,7 +350,7 @@
                                   </grid>
                                 </constraints>
                                 <properties>
-                                  <margin top="2" left="9" bottom="2" right="6"/>
+                                  <margin top="2" left="2" bottom="2" right="2"/>
                                 </properties>
                               </component>
                             </children>
@@ -382,7 +382,7 @@
                                   </grid>
                                 </constraints>
                                 <properties>
-                                  <margin top="3" left="5" bottom="3" right="5"/>
+                                  <margin top="2" left="2" bottom="2" right="2"/>
                                 </properties>
                               </component>
                             </children>

@@ -1,13 +1,17 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
-import org.atividadeJava.atividade3.Prova2e3.Menu.Components.ImagePanel;
-import org.atividadeJava.atividade3.Prova2e3.Menu.Components.RoundedPanel;
-import org.atividadeJava.atividade3.Prova2e3.Menu.Components.circlePanel;
+import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Control extends JFrame {
     private JPanel mainPanel;
@@ -30,24 +34,64 @@ public class Control extends JFrame {
     private JButton button1;
     private JButton button2;
     private JPanel circlePanel;
-    private JButton confirmarButton;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
     private JTextArea textArea1;
-    private JButton button4;
-    private JComboBox comboBox3;
+    private JButton backButton;
+    private JButton confirmButton;
+    private JComboBox<String> idCB;
+    private JComboBox<String> lobbyCB;
+    private JComboBox<String> blockCB;
+    private JComboBox<String> apartmentCB;
+    private JComboBox<String> priorityCB;
+    private JPanel header;
+    private JPanel actionPanel;
+    private JPanel serviceSolicitationPanel;
+    private JTable OSTable;
+    private JPanel serviceConsultPanel;
+    private JScrollPane scrollOSTable;
+
+    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
 
     public Control() {
         setContentPane(mainPanel);
         setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        idCB.addItem(Integer.toString(putID()));
+        String[] lobbyOptions = new String[]{"Portaria Principal", "Portaria Oeste"};
+        for (String option : lobbyOptions) {
+            lobbyCB.addItem(option);
+        }
+        String[] blockOptions = new String[]{"1", "2", "3", "4", "5"};
+        for (String option : blockOptions) {
+            blockCB.addItem(option);
+        }
+        String[] apartmentOptions = new String[]{"101", "102", "103", "201", "202", "203", "301", "302", "303"};
+        for (String option : apartmentOptions) {
+            apartmentCB.addItem(option);
+        }
+        String[] priorityOptions = new String[]{"Baixa", "Média", "Alta"};
+        for (String option : priorityOptions) {
+            priorityCB.addItem(option);
+        }
+        OSTable.setBackground(new Color(0, 0, 0, 0));
+        OSTable.setGridColor(Color.decode("#B86E49"));
+        scrollOSTable.setOpaque(false);
+        scrollOSTable.getViewport().setOpaque(false);
+        scrollOSTable.setBorder(BorderFactory.createEmptyBorder());
+
+        JTableHeader header = OSTable.getTableHeader();
+        header.setBackground(Color.decode("#B86E49"));
+        header.setForeground(Color.WHITE);
+        header.setFont(new Font("Arial", Font.BOLD, 16));
+        pack();
         setVisible(true);
 
         solicitationButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent event) {
-
+                serviceSolicitationPanel.setVisible(true);
+                backButton.setVisible(true);
+                actionPanel.setVisible(false);
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -69,6 +113,13 @@ public class Control extends JFrame {
             }
         });
         consultButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                actionPanel.setVisible(false);
+                backButton.setVisible(true);
+                serviceConsultPanel.setVisible(true);
+                populateTable();
+            }
             @Override
             public void mouseEntered(MouseEvent e) {
                 consultBackground.setBackground(Color.decode("#c6c6a6"));
@@ -128,6 +179,73 @@ public class Control extends JFrame {
                 relatoryBackground.setBackground(Color.decode("#c6c6a6"));
             }
         });
+        confirmButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String description = textArea1.getText().trim().replaceAll("\\s+", " ");;
+                String lobby = (String) lobbyCB.getSelectedItem();
+                String block = (String) blockCB.getSelectedItem();
+                String apartment = (String) apartmentCB.getSelectedItem();
+                String priority = (String) priorityCB.getSelectedItem();
+                try {
+                    saveToCSV(putID(), description, lobby, block, apartment, priority, LocalDateTime.now(), LocalDateTime.now());
+                    JOptionPane.showMessageDialog(mainPanel,"Ordem de serviço salva com sucesso!");
+                } catch (IOException err) {
+                    JOptionPane.showMessageDialog(mainPanel,"Erro ao salvar ordem de serviço\n"+err.getMessage());
+                    throw new RuntimeException(err);
+                }
+                updateScreen();
+            }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                confirmButton.setForeground(Color.white);
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                confirmButton.setForeground(Color.black);
+                setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                confirmButton.setBackground(new Color(65, 103, 51));
+                confirmButton.setSize(195, 48);
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                confirmButton.setBackground(new Color(168, 207, 69));
+                confirmButton.setSize(200, 50);
+            }
+        });
+        backButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                serviceSolicitationPanel.setVisible(false);
+                serviceConsultPanel.setVisible(false);
+                backButton.setVisible(false);
+                actionPanel.setVisible(true);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                backButton.setBackground(new Color(255, 186, 152));
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                backButton.setBackground(new Color(255, 91, 43));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                backButton.setBackground(new Color(255, 91, 43));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                backButton.setBackground(new Color(255, 138, 102));
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -142,6 +260,100 @@ public class Control extends JFrame {
         consultBackground = new RoundedPanel(90);
         historicBackground = new RoundedPanel(90);
         relatoryBackground = new RoundedPanel(90);
-        circlePanel = new circlePanel(1080);
+        circlePanel = new CirclePanel(1080);
+        confirmButton = new RoundedButton();
+        backButton = new RoundedButton();
+        lobbyCB = new CustomComboBox();
+        blockCB = new CustomComboBox();
+        apartmentCB = new CustomComboBox();
+        idCB = new CustomComboBox();
+        priorityCB = new CustomComboBox();
+    }
+
+    private int putID() {
+        int maiorId = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String linha;
+            boolean primeiraLinha = true;
+            while ((linha = reader.readLine()) != null) {
+                if (primeiraLinha) {
+                    primeiraLinha = false;
+                    continue;
+                }
+                String[] colunas = linha.split(",");
+                if (colunas.length > 0) {
+                    try {
+                        int id = Integer.parseInt(colunas[0]);
+                        if (id > maiorId) {
+                            maiorId = id;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Erro ao tentar definir ID: " + e.getMessage());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            return 1;
+        }
+        return maiorId + 1;
+    }
+
+    private void saveToCSV(int ID,
+                           String description,
+                           String lobby,
+                           String block,
+                           String apartment,
+                           String priority,
+                           LocalDateTime createdAt,
+                           LocalDateTime updatedAt) throws IOException {
+
+        try (FileWriter fileWriter = new FileWriter(FILE_PATH, true);
+             PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,0%n",
+                    ID,
+                    description,
+                    lobby,
+                    block,
+                    apartment,
+                    priority,
+                    "Pendente",
+                    createdAt.getDayOfMonth() +"/"+createdAt.getMonthValue() +"/"+ createdAt.getYear(),
+                    updatedAt.getDayOfMonth() +"/"+ updatedAt.getMonthValue() +"/"+ updatedAt.getYear());
+        }
+    }
+
+    private void updateScreen() {
+        idCB.removeAllItems();
+        idCB.addItem(Integer.toString(putID()));
+        textArea1.setText("");
+    }
+
+    private Object[][] readCSVData() {
+        List<Object[]> data = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            boolean isFirstLine = true;
+            while ((line = reader.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
+                String[] columns = line.split(",");
+                if (columns[9].equals("0")) {
+                    columns[9] = "Não finalizada";
+                }
+                data.add(columns);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data.toArray(new Object[0][]);
+    }
+
+    private void populateTable() {
+        String[] columnNames = {"ID", "Descrição", "Portaria", "Bloco", "Apartmento", "Prioridade", "Status", "Criado", "Autalizado", "Finalizado"};
+        Object[][] data = readCSVData();
+
+        OSTable.setModel(new DefaultTableModel(data, columnNames));
     }
 }

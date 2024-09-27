@@ -3,11 +3,11 @@ package org.atividadeJava.atividade3.Prova2e3.Menu.Components;
 import javax.swing.*;
 import java.awt.*;
 
-public class circlePanel extends JPanel {
+public class CirclePanel extends JPanel {
 
     private int cornerRadius = 15;
 
-    public circlePanel(int radius) {
+    public CirclePanel(int radius) {
         super();
         this.cornerRadius = radius;
         setOpaque(false);

@@ -12,12 +12,40 @@ public class Login {
     public void processRegistration(String name, String email, String password, String lobby, String block, String apartment, JPanel mainPanel) {
         try {
             if (isRegisterValid(email, name, password, mainPanel)) {
-                saveToCSV(name, email, password, lobby, block, apartment);
+                saveToCSV(putID(),name, email, password, lobby, block, apartment);
                 showMessage("Registro realizado com sucesso!", JOptionPane.INFORMATION_MESSAGE, mainPanel);
             }
         } catch (IOException ex) {
             showMessage("Erro ao salvar o registro.", JOptionPane.ERROR_MESSAGE, mainPanel);
         }
+    }
+
+    private int putID() {
+        int maiorId = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String linha;
+            boolean primeiraLinha = true;
+            while ((linha = reader.readLine()) != null) {
+                if (primeiraLinha) {
+                    primeiraLinha = false;
+                    continue;
+                }
+                String[] colunas = linha.split(",");
+                if (colunas.length > 0) {
+                    try {
+                        int id = Integer.parseInt(colunas[0]);
+                        if (id > maiorId) {
+                            maiorId = id;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Erro ao tentar definir ID: " + e.getMessage());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            return 1;
+        }
+        return maiorId + 1;
     }
 
     public void processLogin(String email, String password, JPanel mainPanel) {
@@ -39,7 +67,7 @@ public class Login {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-                if (fields.length >= 3 && email.equals(fields[1]) && password.equals(fields[2])) {
+                if (fields.length >= 3 && email.equals(fields[2]) && password.equals(fields[3])) {
                     return true;
                 }
             }
@@ -80,10 +108,10 @@ public class Login {
         return true;
     }
 
-    private void saveToCSV(String name, String email, String password, String lobby, String apartment, String block) throws IOException {
+    private void saveToCSV(int ID, String name, String email, String password, String lobby, String apartment, String block) throws IOException {
         try (FileWriter fileWriter = new FileWriter(FILE_PATH, true);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
-            printWriter.printf("%s,%s,%s,%s,%s,%s%n", name, email, password, lobby, apartment, block);
+            printWriter.printf("%d,%s,%s,%s,%s,%s,%s%n", ID, name, email, password, lobby, apartment, block);
         }
     }
 
