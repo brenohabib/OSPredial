@@ -1,4 +1,101 @@
 ID,description,lobby,block,apartment,priority,status,created_at,updated_at,finalized_at
-1,blaba,Portaria Principal,1,101,Baixa,Pendente,26/9/2024,26/9/2024,0
-2,C'est La vie Amen,Portaria Principal,1,101,Baixa,Pendente,26/9/2024,26/9/2024,0
-3,cbajchjaj jsavjahjkvahj anjvajlva adsvkladjvb anvjkabdvjad,Portaria Principal,1,101,Baixa,Pendente,26/9/2024,26/9/2024,0
+1,piso,Portaria Oeste,4,484,Média,Em Progresso,29/09/2024,30/09/2024,0
+2,pintura,Portaria Norte,2,492,Alta,Pendente,27/09/2024,27/09/2024,0
+3,jardinagem,Portaria Sul,5,312,Alta,Pendente,27/09/2024,27/09/2024,0
+4,vidros,Portaria Norte,1,342,Baixa,Finalizado,28/09/2024,29/09/2024,29/09/2024
+5,encanacao,Portaria Principal,3,315,Alta,Pendente,26/09/2024,27/09/2024,0
+6,infiltracao,Portaria Oeste,5,131,Alta,Finalizado,30/09/2024,01/10/2024,02/10/2024
+7,encanacao,Portaria Norte,5,409,Média,Em Progresso,28/09/2024,29/09/2024,0
+8,pintura,Portaria Oeste,3,224,Baixa,Pendente,01/10/2024,01/10/2024,0
+9,eletrica,Portaria Sul,1,495,Alta,Em Progresso,29/09/2024,30/09/2024,0
+10,eletrica,Portaria Oeste,5,466,Baixa,Finalizado,30/09/2024,30/09/2024,04/10/2024
+11,jardinagem,Portaria Principal,2,421,Média,Finalizado,01/10/2024,02/10/2024,04/10/2024
+12,telhado,Portaria Norte,2,482,Média,Em Progresso,29/09/2024,30/09/2024,0
+13,infiltracao,Portaria Principal,2,261,Baixa,Em Progresso,27/09/2024,27/09/2024,0
+14,telhado,Portaria Sul,1,402,Baixa,Em Progresso,29/09/2024,30/09/2024,0
+15,jardinagem,Portaria Sul,4,460,Média,Em Progresso,26/09/2024,26/09/2024,0
+16,portao,Portaria Sul,5,400,Média,Pendente,27/09/2024,28/09/2024,0
+17,jardinagem,Portaria Sul,5,389,Baixa,Finalizado,30/09/2024,30/09/2024,02/10/2024
+18,limpeza,Portaria Oeste,2,498,Baixa,Pendente,29/09/2024,29/09/2024,0
+19,jardinagem,Portaria Oeste,2,137,Média,Finalizado,01/10/2024,01/10/2024,01/10/2024
+20,eletrica,Portaria Oeste,4,226,Baixa,Em Progresso,27/09/2024,27/09/2024,0
+21,piso,Portaria Principal,3,306,Baixa,Em Progresso,29/09/2024,30/09/2024,0
+22,vidros,Portaria Norte,2,162,Alta,Finalizado,29/09/2024,29/09/2024,03/10/2024
+23,limpeza,Portaria Principal,5,133,Média,Finalizado,27/09/2024,28/09/2024,30/09/2024
+24,infiltracao,Portaria Sul,3,498,Baixa,Pendente,30/09/2024,30/09/2024,0
+25,portao,Portaria Sul,3,257,Baixa,Finalizado,27/09/2024,28/09/2024,03/10/2024
+26,portao,Portaria Sul,2,494,Alta,Pendente,26/09/2024,27/09/2024,0
+27,pintura,Portaria Principal,1,293,Alta,Em Progresso,26/09/2024,27/09/2024,0
+28,eletrica,Portaria Norte,1,401,Média,Finalizado,28/09/2024,29/09/2024,04/10/2024
+29,vidros,Portaria Norte,1,492,Alta,Pendente,30/09/2024,01/10/2024,0
+30,infiltracao,Portaria Sul,4,172,Média,Em Progresso,30/09/2024,01/10/2024,0
+31,limpeza,Portaria Oeste,1,437,Média,Pendente,30/09/2024,01/10/2024,0
+32,limpeza,Portaria Oeste,1,249,Média,Finalizado,30/09/2024,30/09/2024,03/10/2024
+33,pintura,Portaria Norte,1,177,Média,Finalizado,01/10/2024,02/10/2024,07/10/2024
+34,eletrica,Portaria Sul,3,326,Baixa,Finalizado,01/10/2024,03/10/2024,08/10/2024
+35,vidros,Portaria Norte,1,425,Alta,Em Progresso,30/09/2024,01/10/2024,0
+36,telhado,Portaria Principal,5,204,Média,Pendente,01/10/2024,01/10/2024,0
+37,pintura,Portaria Principal,1,480,Alta,Pendente,30/09/2024,01/10/2024,0
+38,pintura,Portaria Norte,1,168,Alta,Finalizado,29/09/2024,30/09/2024,05/10/2024
+39,jardinagem,Portaria Principal,1,405,Baixa,Pendente,30/09/2024,01/10/2024,0
+40,eletrica,Portaria Principal,4,207,Média,Finalizado,26/09/2024,26/09/2024,26/09/2024
+41,portao,Portaria Sul,4,412,Média,Em Progresso,26/09/2024,27/09/2024,0
+42,eletrica,Portaria Norte,2,371,Baixa,Pendente,26/09/2024,27/09/2024,0
+43,eletrica,Portaria Sul,5,224,Média,Pendente,27/09/2024,27/09/2024,0
+44,piso,Portaria Sul,3,435,Baixa,Pendente,28/09/2024,29/09/2024,0
+45,eletrica,Portaria Oeste,4,343,Baixa,Em Progresso,27/09/2024,27/09/2024,0
+46,limpeza,Portaria Principal,1,180,Alta,Finalizado,01/10/2024,01/10/2024,04/10/2024
+47,limpeza,Portaria Norte,3,390,Alta,Finalizado,30/09/2024,30/09/2024,05/10/2024
+48,encanacao,Portaria Principal,5,189,Média,Finalizado,29/09/2024,29/09/2024,04/10/2024
+49,vidros,Portaria Norte,4,390,Alta,Em Progresso,29/09/2024,29/09/2024,0
+50,piso,Portaria Oeste,4,139,Média,Em Progresso,27/09/2024,27/09/2024,0
+51,portao,Portaria Oeste,2,371,Baixa,Em Progresso,27/09/2024,27/09/2024,0
+52,pintura,Portaria Sul,4,262,Baixa,Em Progresso,30/09/2024,30/09/2024,0
+53,jardinagem,Portaria Sul,4,416,Alta,Em Progresso,29/09/2024,30/09/2024,0
+54,pintura,Portaria Principal,1,321,Média,Finalizado,29/09/2024,29/09/2024,29/09/2024
+55,eletrica,Portaria Sul,1,466,Baixa,Pendente,26/09/2024,27/09/2024,0
+56,portao,Portaria Sul,3,351,Média,Em Progresso,29/09/2024,30/09/2024,0
+57,encanacao,Portaria Principal,4,130,Baixa,Em Progresso,28/09/2024,28/09/2024,0
+58,piso,Portaria Oeste,4,313,Alta,Finalizado,26/09/2024,26/09/2024,01/10/2024
+59,jardinagem,Portaria Norte,5,334,Baixa,Pendente,30/09/2024,30/09/2024,0
+60,piso,Portaria Oeste,3,483,Alta,Finalizado,01/10/2024,01/10/2024,04/10/2024
+61,piso,Portaria Principal,4,470,Alta,Em Progresso,29/09/2024,29/09/2024,0
+62,pintura,Portaria Principal,5,363,Alta,Finalizado,29/09/2024,30/09/2024,05/10/2024
+63,telhado,Portaria Sul,2,458,Alta,Pendente,01/10/2024,01/10/2024,0
+64,infiltracao,Portaria Sul,2,404,Média,Em Progresso,29/09/2024,29/09/2024,0
+65,eletrica,Portaria Principal,2,328,Alta,Pendente,26/09/2024,27/09/2024,0
+66,telhado,Portaria Norte,4,240,Baixa,Pendente,01/10/2024,02/10/2024,0
+67,piso,Portaria Oeste,4,211,Alta,Em Progresso,26/09/2024,26/09/2024,0
+68,piso,Portaria Oeste,5,294,Média,Em Progresso,26/09/2024,26/09/2024,0
+69,piso,Portaria Oeste,5,367,Média,Em Progresso,01/10/2024,01/10/2024,0
+70,portao,Portaria Oeste,5,441,Baixa,Em Progresso,27/09/2024,27/09/2024,0
+71,telhado,Portaria Norte,2,479,Média,Pendente,28/09/2024,29/09/2024,0
+72,telhado,Portaria Principal,3,293,Média,Finalizado,30/09/2024,01/10/2024,06/10/2024
+73,pintura,Portaria Norte,4,140,Alta,Finalizado,01/10/2024,01/10/2024,05/10/2024
+74,pintura,Portaria Sul,1,101,Baixa,Pendente,01/10/2024,02/10/2024,0
+75,infiltracao,Portaria Norte,5,372,Média,Pendente,28/09/2024,28/09/2024,0
+76,infiltracao,Portaria Principal,4,361,Média,Finalizado,27/09/2024,27/09/2024,30/09/2024
+77,pintura,Portaria Norte,3,352,Média,Pendente,26/09/2024,26/09/2024,0
+78,infiltracao,Portaria Oeste,5,473,Alta,Em Progresso,30/09/2024,30/09/2024,0
+79,portao,Portaria Principal,1,441,Baixa,Em Progresso,28/09/2024,28/09/2024,0
+80,portao,Portaria Norte,2,360,Alta,Pendente,30/09/2024,01/10/2024,0
+81,vidros,Portaria Principal,5,483,Alta,Finalizado,29/09/2024,30/09/2024,02/10/2024
+82,encanacao,Portaria Sul,3,421,Alta,Em Progresso,26/09/2024,27/09/2024,0
+83,encanacao,Portaria Principal,5,246,Baixa,Finalizado,28/09/2024,29/09/2024,29/09/2024
+84,telhado,Portaria Oeste,2,482,Baixa,Em Progresso,30/09/2024,30/09/2024,0
+85,limpeza,Portaria Oeste,4,112,Alta,Em Progresso,28/09/2024,29/09/2024,0
+86,pintura,Portaria Norte,4,104,Média,Pendente,30/09/2024,30/09/2024,0
+87,piso,Portaria Sul,1,500,Média,Em Progresso,27/09/2024,29/09/2024,0
+88,portao,Portaria Oeste,5,259,Média,Finalizado,29/09/2024,29/09/2024,04/10/2024
+89,piso,Portaria Norte,5,357,Alta,Finalizado,30/09/2024,01/10/2024,04/10/2024
+90,jardinagem,Portaria Principal,3,138,Alta,Finalizado,26/09/2024,27/09/2024,30/09/2024
+91,pintura,Portaria Sul,3,386,Baixa,Pendente,30/09/2024,30/09/2024,0
+92,infiltracao,Portaria Sul,5,402,Média,Em Progresso,29/09/2024,30/09/2024,0
+93,vidros,Portaria Principal,3,267,Baixa,Em Progresso,30/09/2024,01/10/2024,0
+94,infiltracao,Portaria Norte,5,443,Média,Finalizado,30/09/2024,30/09/2024,04/10/2024
+95,piso,Portaria Principal,4,437,Alta,Finalizado,28/09/2024,28/09/2024,02/10/2024
+96,pintura,Portaria Oeste,3,301,Média,Finalizado,26/09/2024,26/09/2024,26/09/2024
+97,pintura,Portaria Principal,3,284,Baixa,Finalizado,27/09/2024,27/09/2024,01/10/2024
+98,infiltracao,Portaria Oeste,4,474,Média,Em Progresso,28/09/2024,29/09/2024,0
+99,vidros,Portaria Principal,3,358,Média,Pendente,26/09/2024,27/09/2024,0
+100,telhado,Portaria Norte,1,476,Alta,Finalizado,01/10/2024,02/10/2024,03/10/2024

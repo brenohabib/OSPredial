@@ -5,12 +5,15 @@ import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 public class Control extends JFrame {
@@ -83,6 +86,8 @@ public class Control extends JFrame {
         header.setBackground(Color.decode("#B86E49"));
         header.setForeground(Color.WHITE);
         header.setFont(new Font("Arial", Font.BOLD, 16));
+
+        scrollOSTable.getVerticalScrollBar().setUI(new DarkScrollBarUI());
         pack();
         setVisible(true);
 
@@ -345,15 +350,58 @@ public class Control extends JFrame {
                 data.add(columns);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Arquivo não encontrado: " + e.getMessage());
         }
         return data.toArray(new Object[0][]);
     }
 
     private void populateTable() {
-        String[] columnNames = {"ID", "Descrição", "Portaria", "Bloco", "Apartmento", "Prioridade", "Status", "Criado", "Autalizado", "Finalizado"};
+        String[] columnNames = {"ID", null,"Portaria", "Bloco", "Apartmento", "Prioridade", "Status", "Criado", "Atualizado"};
         Object[][] data = readCSVData();
 
-        OSTable.setModel(new DefaultTableModel(data, columnNames));
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+
+        OSTable.setModel(model);
+
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        OSTable.setRowSorter(sorter);
+        sorter.setComparator(0, Comparator.comparingInt((String o) -> Integer.parseInt(o)));
+        sorter.setComparator(5, (o1, o2) -> {
+            List<String> priorities = Arrays.asList("Baixa", "Média", "Alta");
+
+            int index1 = (o1 == null) ? priorities.size() : priorities.indexOf(o1);
+            int index2 = (o2 == null) ? priorities.size() : priorities.indexOf(o2);
+
+            return Integer.compare(index1, index2);
+        });
+        sorter.setComparator(6, (o1, o2 ) -> {
+            List<String> priorities = Arrays.asList("Pendente", "Em Progresso", "Finalizado");
+
+            int index1 = (o1 == null) ? priorities.size() : priorities.indexOf(o1);
+            int index2 = (o2 == null) ? priorities.size() : priorities.indexOf(o2);
+
+            return Integer.compare(index1, index2);
+        });
+        sorter.setComparator(7, (Comparator<String>) (o1, o2) -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date date1 = sdf.parse(o1);
+                Date date2 = sdf.parse(o2);
+                return date1.compareTo(date2);
+            } catch (ParseException e) {
+                return 0;
+            }
+        });
+        sorter.setComparator(8, (Comparator<String>) (o1, o2) -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date date1 = sdf.parse(o1);
+                Date date2 = sdf.parse(o2);
+                return date1.compareTo(date2);
+            } catch (ParseException e) {
+                return 0;
+            }
+        });
+        OSTable.removeColumn(OSTable.getColumnModel().getColumn(1));
     }
 }
