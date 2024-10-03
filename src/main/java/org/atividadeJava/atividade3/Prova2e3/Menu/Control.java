@@ -3,18 +3,11 @@ package org.atividadeJava.atividade3.Prova2e3.Menu;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.*;
-import java.util.List;
 
 public class Control extends JFrame {
     private JPanel mainPanel;
@@ -51,8 +44,35 @@ public class Control extends JFrame {
     private JTable OSTable;
     private JPanel serviceConsultPanel;
     private JScrollPane scrollOSTable;
+    private JPanel serviceHistoricPanel;
+    private JScrollPane scrollHistoric;
+    private JTable historicTable;
 
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+
+    private void createUIComponents() {
+        logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
+        solicitationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/solicite-Photoroom.png");
+        consultPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/consulte-Photoroom.png");
+        historicPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/historico carinha sus-Photoroom.png");
+        relatoryPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/geracao nao z-Photoroom.png");
+        notificationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/notification-icon.png");
+        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/user-icon.png");
+        solicitationBackground = new RoundedPanel(90);
+        consultBackground = new RoundedPanel(90);
+        historicBackground = new RoundedPanel(90);
+        relatoryBackground = new RoundedPanel(90);
+        circlePanel = new CirclePanel(1080);
+        confirmButton = new RoundedButton();
+        backButton = new RoundedButton();
+        lobbyCB = new CustomComboBox();
+        blockCB = new CustomComboBox();
+        apartmentCB = new CustomComboBox();
+        idCB = new CustomComboBox();
+        priorityCB = new CustomComboBox();
+        OSTable = new CustomTable(false);
+        historicTable = new CustomTable(true);
+    }
 
     public Control() {
         setContentPane(mainPanel);
@@ -76,18 +96,16 @@ public class Control extends JFrame {
         for (String option : priorityOptions) {
             priorityCB.addItem(option);
         }
-        OSTable.setBackground(new Color(0, 0, 0, 0));
-        OSTable.setGridColor(Color.decode("#B86E49"));
         scrollOSTable.setOpaque(false);
         scrollOSTable.getViewport().setOpaque(false);
         scrollOSTable.setBorder(BorderFactory.createEmptyBorder());
-
-        JTableHeader header = OSTable.getTableHeader();
-        header.setBackground(Color.decode("#B86E49"));
-        header.setForeground(Color.WHITE);
-        header.setFont(new Font("Arial", Font.BOLD, 16));
-
         scrollOSTable.getVerticalScrollBar().setUI(new DarkScrollBarUI());
+
+        scrollHistoric.setOpaque(false);
+        scrollHistoric.getViewport().setOpaque(false);
+        scrollHistoric.setBorder(BorderFactory.createEmptyBorder());
+        scrollHistoric.getVerticalScrollBar().setUI(new DarkScrollBarUI());
+
         pack();
         setVisible(true);
 
@@ -123,7 +141,7 @@ public class Control extends JFrame {
                 actionPanel.setVisible(false);
                 backButton.setVisible(true);
                 serviceConsultPanel.setVisible(true);
-                populateTable();
+                CustomTable.updateTable((CustomTable) OSTable, false);
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -145,6 +163,13 @@ public class Control extends JFrame {
             }
         });
         historicButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                actionPanel.setVisible(false);
+                backButton.setVisible(true);
+                serviceHistoricPanel.setVisible(true);
+                CustomTable.updateTable((CustomTable) historicTable, true);
+            }
             @Override
             public void mouseEntered(MouseEvent e) {
                 historicBackground.setBackground(Color.decode("#c6c6a6"));
@@ -227,6 +252,7 @@ public class Control extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 serviceSolicitationPanel.setVisible(false);
                 serviceConsultPanel.setVisible(false);
+                serviceHistoricPanel.setVisible(false);
                 backButton.setVisible(false);
                 actionPanel.setVisible(true);
             }
@@ -251,28 +277,6 @@ public class Control extends JFrame {
                 backButton.setBackground(new Color(255, 138, 102));
             }
         });
-    }
-
-    private void createUIComponents() {
-        logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
-        solicitationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/solicite-Photoroom.png");
-        consultPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/consulte-Photoroom.png");
-        historicPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/historico carinha sus-Photoroom.png");
-        relatoryPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/geracao nao z-Photoroom.png");
-        notificationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/notification-icon.png");
-        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/user-icon.png");
-        solicitationBackground = new RoundedPanel(90);
-        consultBackground = new RoundedPanel(90);
-        historicBackground = new RoundedPanel(90);
-        relatoryBackground = new RoundedPanel(90);
-        circlePanel = new CirclePanel(1080);
-        confirmButton = new RoundedButton();
-        backButton = new RoundedButton();
-        lobbyCB = new CustomComboBox();
-        blockCB = new CustomComboBox();
-        apartmentCB = new CustomComboBox();
-        idCB = new CustomComboBox();
-        priorityCB = new CustomComboBox();
     }
 
     private int putID() {
@@ -331,77 +335,5 @@ public class Control extends JFrame {
         idCB.removeAllItems();
         idCB.addItem(Integer.toString(putID()));
         textArea1.setText("");
-    }
-
-    private Object[][] readCSVData() {
-        List<Object[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            boolean isFirstLine = true;
-            while ((line = reader.readLine()) != null) {
-                if (isFirstLine) {
-                    isFirstLine = false;
-                    continue;
-                }
-                String[] columns = line.split(",");
-                if (columns[9].equals("0")) {
-                    columns[9] = "Não finalizada";
-                }
-                data.add(columns);
-            }
-        } catch (IOException e) {
-            System.out.println("Arquivo não encontrado: " + e.getMessage());
-        }
-        return data.toArray(new Object[0][]);
-    }
-
-    private void populateTable() {
-        String[] columnNames = {"ID", null,"Portaria", "Bloco", "Apartmento", "Prioridade", "Status", "Criado", "Atualizado"};
-        Object[][] data = readCSVData();
-
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-
-        OSTable.setModel(model);
-
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
-        OSTable.setRowSorter(sorter);
-        sorter.setComparator(0, Comparator.comparingInt((String o) -> Integer.parseInt(o)));
-        sorter.setComparator(5, (o1, o2) -> {
-            List<String> priorities = Arrays.asList("Baixa", "Média", "Alta");
-
-            int index1 = (o1 == null) ? priorities.size() : priorities.indexOf(o1);
-            int index2 = (o2 == null) ? priorities.size() : priorities.indexOf(o2);
-
-            return Integer.compare(index1, index2);
-        });
-        sorter.setComparator(6, (o1, o2 ) -> {
-            List<String> priorities = Arrays.asList("Pendente", "Em Progresso", "Finalizado");
-
-            int index1 = (o1 == null) ? priorities.size() : priorities.indexOf(o1);
-            int index2 = (o2 == null) ? priorities.size() : priorities.indexOf(o2);
-
-            return Integer.compare(index1, index2);
-        });
-        sorter.setComparator(7, (Comparator<String>) (o1, o2) -> {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date date1 = sdf.parse(o1);
-                Date date2 = sdf.parse(o2);
-                return date1.compareTo(date2);
-            } catch (ParseException e) {
-                return 0;
-            }
-        });
-        sorter.setComparator(8, (Comparator<String>) (o1, o2) -> {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date date1 = sdf.parse(o1);
-                Date date2 = sdf.parse(o2);
-                return date1.compareTo(date2);
-            } catch (ParseException e) {
-                return 0;
-            }
-        });
-        OSTable.removeColumn(OSTable.getColumnModel().getColumn(1));
     }
 }
