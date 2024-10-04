@@ -1,4 +1,4 @@
-package org.atividadeJava.atividade3.Prova2e3.Menu;
+package org.atividadeJava.atividade3.Prova2e3;
 
 import javax.swing.*;
 import java.io.*;
@@ -8,6 +8,11 @@ import java.util.regex.Pattern;
 public class Login {
 
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/records.csv";
+    private static boolean adminLogged;
+
+    public static boolean isAdminLogged() {
+        return adminLogged;
+    }
 
     public void processRegistration(String name, String email, String password, String lobby, String block, String apartment, JPanel mainPanel) {
         try {
@@ -52,8 +57,10 @@ public class Login {
         try {
             if (isLoginValid(email, password) && email.equals("admin@admin.com")) {
                 showMessage("Admin logado com sucesso!", JOptionPane.INFORMATION_MESSAGE, mainPanel);
+                adminLogged = true;
             } else if (isLoginValid(email, password)) {
                 showMessage("Login realizado com sucesso!", JOptionPane.INFORMATION_MESSAGE, mainPanel);
+                adminLogged = false;
             } else {
                 showMessage("Email ou senha inválidos.", JOptionPane.ERROR_MESSAGE, mainPanel);
             }
@@ -118,4 +125,6 @@ public class Login {
     private void showMessage(String message, int messageType, JPanel mainPanel) {
         JOptionPane.showMessageDialog(mainPanel, message, "", messageType);
     }
+
+
 }

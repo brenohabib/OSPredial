@@ -3,6 +3,9 @@ package org.atividadeJava.atividade3.Prova2e3.Menu.Components;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,11 +24,15 @@ public class CustomTable extends JTable {
     private static final Font HEADER_FONT = new Font("Arial", Font.BOLD, 16);
     private static final Color EVEN_ROW_COLOR = Color.decode("#EEC599");
     private static final Color ODD_ROW_COLOR = Color.decode("#FCD1A2");
+    private static final Color SELECTED_ROW_COLOR = Color.decode("#A0522D");
+
+    private int selectedRow = -1;
 
     public CustomTable(boolean onlyFinished) {
         super();
         setupTable();
         populateTable(onlyFinished);
+        setupRowSelection();
     }
 
     private void setupTable() {
@@ -38,12 +45,61 @@ public class CustomTable extends JTable {
         header.setFont(HEADER_FONT);
     }
 
+    private void setupRowSelection() {
+        getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                selectedRow = getSelectedRow();
+                repaint();
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                paintSelectedRow(e);
+            }
+        });
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                paintSelectedRow(e);
+            }
+        });
+
+        setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                                                           boolean isSelected, boolean hasFocus,
+                                                           int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                if (row == selectedRow || isSelected) {
+                    c.setBackground(SELECTED_ROW_COLOR);
+                    c.setForeground(Color.WHITE);
+                } else {
+                    c.setBackground(row % 2 == 0 ? EVEN_ROW_COLOR : ODD_ROW_COLOR);
+                    c.setForeground(Color.BLACK);
+                }
+
+                return c;
+            }
+        });
+    }
+    private void paintSelectedRow(MouseEvent e) {
+        Point point = e.getPoint();
+        int row = rowAtPoint(point);
+        if (row != -1) {
+            setRowSelectionInterval(row, row);
+            selectedRow = row;
+            repaint();
+        }
+    }
+
     private void populateTable(boolean onlyFinished) {
         Object[][] data;
         if (onlyFinished) {
             data = readFinishedTasks();
-        }
-        else {
+        } else {
             data = readUnfinishedTasks();
         }
         DefaultTableModel model = new DefaultTableModel(data, COLUMN_NAMES);
@@ -56,7 +112,6 @@ public class CustomTable extends JTable {
         removeColumn(getColumnModel().getColumn(1));
 
         resizeTableColumns();
-        setAlternateColumnColors();
     }
     public static void updateTable(CustomTable table, boolean onlyFinished) {
         table.populateTable(onlyFinished);
@@ -167,4 +222,9 @@ public class CustomTable extends JTable {
             getColumnModel().getColumn(columnIndex).setPreferredWidth(width + 2);
         }
     }
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return false;
+    }
+
 }

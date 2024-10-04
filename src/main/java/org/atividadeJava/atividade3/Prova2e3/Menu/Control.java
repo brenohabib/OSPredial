@@ -277,6 +277,12 @@ public class Control extends JFrame {
                 backButton.setBackground(new Color(255, 138, 102));
             }
         });
+        solicitationButton.addMouseListener(new MouseAdapter() {
+        });
+        solicitationButton.addMouseListener(new MouseAdapter() {
+        });
+        solicitationButton.addMouseListener(new MouseAdapter() {
+        });
     }
 
     private int putID() {

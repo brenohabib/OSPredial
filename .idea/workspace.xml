@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.5">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/CustomTable.java" afterDir="false" />
+    <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.6">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/CustomTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/CustomTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Tecnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Tecnician.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +188,10 @@
       <workItem from="1727778822178" duration="1729000" />
       <workItem from="1727823016546" duration="195000" />
       <workItem from="1727907121657" duration="974000" />
-      <workItem from="1727911779766" duration="2529000" />
+      <workItem from="1727911779766" duration="3366000" />
+      <workItem from="1727953055038" duration="3567000" />
+      <workItem from="1727984868765" duration="595000" />
+      <workItem from="1727992687592" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />
@@ -266,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727449024600</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="v0.6">
+      <option name="closed" value="true" />
+      <created>1727914807811</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727914807811</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +304,7 @@
     <MESSAGE value="v0.3" />
     <MESSAGE value="v0.4" />
     <MESSAGE value="v0.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.5" />
+    <MESSAGE value="v0.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.6" />
   </component>
 </project>
