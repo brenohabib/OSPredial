@@ -10,7 +10,7 @@ public class Login {
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/records.csv";
     private static boolean adminLogged;
 
-    public static boolean isAdminLogged() {
+    public boolean isAdminLogged() {
         return adminLogged;
     }
 

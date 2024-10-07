@@ -6,6 +6,6 @@ import org.atividadeJava.atividade3.Prova2e3.Menu.Register;
 public class SGOS {
     public static void main(String[] args) {
         //new Register();
-        new Control();
+        new Control(new Admin());
     }
 }

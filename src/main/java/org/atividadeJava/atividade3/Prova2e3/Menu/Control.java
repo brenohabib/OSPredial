@@ -1,6 +1,9 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
+import org.atividadeJava.atividade3.Prova2e3.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
+import org.atividadeJava.atividade3.Prova2e3.Person;
+import org.atividadeJava.atividade3.Prova2e3.Resident;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,8 +50,11 @@ public class Control extends JFrame {
     private JPanel serviceHistoricPanel;
     private JScrollPane scrollHistoric;
     private JTable historicTable;
+    private JLabel userLabel;
+    private JLabel priorityLabel;
 
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+    private Person user;
 
     private void createUIComponents() {
         logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
@@ -74,7 +80,7 @@ public class Control extends JFrame {
         historicTable = new CustomTable(true);
     }
 
-    public Control() {
+    public Control(Person user) {
         setContentPane(mainPanel);
         setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -105,6 +111,12 @@ public class Control extends JFrame {
         scrollHistoric.getViewport().setOpaque(false);
         scrollHistoric.setBorder(BorderFactory.createEmptyBorder());
         scrollHistoric.getVerticalScrollBar().setUI(new DarkScrollBarUI());
+
+        userLabel.setText(user.getName());
+        if (user instanceof Resident) {
+            priorityLabel.setVisible(false);
+            priorityCB.setVisible(false);
+        }
 
         pack();
         setVisible(true);

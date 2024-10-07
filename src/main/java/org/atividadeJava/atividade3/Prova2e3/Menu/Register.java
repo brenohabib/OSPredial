@@ -1,7 +1,9 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
+import org.atividadeJava.atividade3.Prova2e3.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Login;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
+import org.atividadeJava.atividade3.Prova2e3.Resident;
 
 import javax.swing.*;
 import java.awt.*;
@@ -115,13 +117,20 @@ public class Register extends JFrame {
                     loginService.processRegistration(name, email, password, lobby, block, apartment, mainPanel);
                     changeToLogin();
                 } else {
+                    String name = nameInput.getText();
                     String email = emailInput.getText();
                     String password = new String(passwordInput.getPassword());
                     loginService.processLogin(email, password, mainPanel);
                     try {
+
                         if (loginService.isLoginValid(email, password)) {
                             dispose();
-                            new Control();
+                            if(loginService.isAdminLogged()) {
+                                new Control(new Admin());
+                            }
+                            else{
+                                new Resident(name, email);
+                            }
                         }
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
