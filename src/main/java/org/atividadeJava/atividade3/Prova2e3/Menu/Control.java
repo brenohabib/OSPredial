@@ -54,7 +54,6 @@ public class Control extends JFrame {
     private JLabel priorityLabel;
 
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
-    private Person user;
 
     private void createUIComponents() {
         logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
@@ -289,12 +288,55 @@ public class Control extends JFrame {
                 backButton.setBackground(new Color(255, 138, 102));
             }
         });
-        solicitationButton.addMouseListener(new MouseAdapter() {
+        OSTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
+            }
+
+            private void showPopup(MouseEvent e) {
+                int row = OSTable.rowAtPoint(e.getPoint());
+                if (row != -1) {
+                    OSTable.setRowSelectionInterval(row, row);
+
+                    JPopupMenu popupMenu = new JPopupMenu();
+                    JMenuItem viewDetails = new JMenuItem("Detalhes");
+
+                    if (user instanceof Admin) {
+                        JMenuItem setTec = getjMenuItem(e);
+
+                        popupMenu.add(setTec);
+                    }
+
+                    viewDetails.addActionListener(ev -> {
+                        Object rowData = OSTable.getValueAt(row, 0);
+                        System.out.println("View details for row: " + rowData);
+                    });
+
+                    popupMenu.add(viewDetails);
+
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+
         });
-        solicitationButton.addMouseListener(new MouseAdapter() {
+
+    }
+    private static JMenuItem getjMenuItem(MouseEvent e) {
+        JMenuItem setTec = new JMenuItem("Alterar técnico");
+        setTec.addActionListener(ev -> {
+            Assignment.showTechnicianSelectionDialog(e.getComponent(), e.getXOnScreen(), e.getYOnScreen());
         });
-        solicitationButton.addMouseListener(new MouseAdapter() {
-        });
+        return setTec;
     }
 
     private int putID() {
