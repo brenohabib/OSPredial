@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CustomTable extends JTable {
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
-    private static final String[] COLUMN_NAMES = {"ID", null, "Portaria", "Bloco", "Apartamento", "Prioridade", "Status", "Criado", "Atualizado"};
+    private static final String[] COLUMN_NAMES = {"ID", "Técnico", null, "Portaria", "Bloco", "Apartamento", "Prioridade", "Status", "Criado", "Atualizado"};
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0, 0);
     private static final Color GRID_COLOR = Color.decode("#B86E49");
     private static final Color HEADER_BACKGROUND = Color.decode("#B86E49");
@@ -109,7 +109,7 @@ public class CustomTable extends JTable {
         setRowSorter(sorter);
 
         setupSorters(sorter);
-        removeColumn(getColumnModel().getColumn(1));
+        removeColumn(getColumnModel().getColumn(2));
 
         resizeTableColumns();
     }
@@ -119,10 +119,10 @@ public class CustomTable extends JTable {
 
     private void setupSorters(TableRowSorter<DefaultTableModel> sorter) {
         sorter.setComparator(0, Comparator.comparingInt((String o) -> Integer.parseInt(o)));
-        sorter.setComparator(5, createPriorityComparator());
-        sorter.setComparator(6, createStatusComparator());
-        sorter.setComparator(7, createDateComparator());
+        sorter.setComparator(6, createPriorityComparator());
+        sorter.setComparator(7, createStatusComparator());
         sorter.setComparator(8, createDateComparator());
+        sorter.setComparator(9, createDateComparator());
     }
 
     private Comparator<String> createPriorityComparator() {
@@ -156,16 +156,12 @@ public class CustomTable extends JTable {
         };
     }
 
-    private Object[][] readCSVData() {
-        return readCSVData(row -> true);
-    }
-
     private Object[][] readUnfinishedTasks() {
-        return readCSVData(row -> !row[6].equals("Finalizado"));
+        return readCSVData(row -> !row[7].equals("Finalizado"));
     }
 
     private Object[][] readFinishedTasks() {
-        return readCSVData(row -> row[6].equals("Finalizado"));
+        return readCSVData(row -> row[7].equals("Finalizado"));
     }
 
     private Object[][] readCSVData(java.util.function.Predicate<String[]> filter) {
@@ -187,23 +183,6 @@ public class CustomTable extends JTable {
             System.out.println("Arquivo não encontrado: " + e.getMessage());
         }
         return data.toArray(new Object[0][]);
-    }
-
-    private void setAlternateColumnColors() {
-        TableCellRenderer renderer = new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value,
-                                                           boolean isSelected, boolean hasFocus,
-                                                           int row, int column) {
-                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                c.setBackground(column % 2 == 0 ? EVEN_ROW_COLOR : ODD_ROW_COLOR);
-                return c;
-            }
-        };
-
-        for (int i = 0; i < getColumnCount(); i++) {
-            getColumnModel().getColumn(i).setCellRenderer(renderer);
-        }
     }
 
     private void resizeTableColumns() {

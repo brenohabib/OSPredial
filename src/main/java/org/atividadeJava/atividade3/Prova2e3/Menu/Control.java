@@ -229,7 +229,7 @@ public class Control extends JFrame {
                 String apartment = (String) apartmentCB.getSelectedItem();
                 String priority = (String) priorityCB.getSelectedItem();
                 try {
-                    saveToCSV(putID(), description, lobby, block, apartment, priority, LocalDateTime.now(), LocalDateTime.now());
+                    saveToCSV(putID(),"",description, lobby, block, apartment, priority, LocalDateTime.now(), LocalDateTime.now());
                     JOptionPane.showMessageDialog(mainPanel,"Ordem de serviço salva com sucesso!");
                 } catch (IOException err) {
                     JOptionPane.showMessageDialog(mainPanel,"Erro ao salvar ordem de serviço\n"+err.getMessage());
@@ -313,7 +313,6 @@ public class Control extends JFrame {
 
                     if (user instanceof Admin) {
                         JMenuItem setTec = getjMenuItem(e);
-
                         popupMenu.add(setTec);
                     }
 
@@ -331,11 +330,10 @@ public class Control extends JFrame {
         });
 
     }
-    private static JMenuItem getjMenuItem(MouseEvent e) {
+    private JMenuItem getjMenuItem(MouseEvent e) {
+        int row = OSTable.rowAtPoint(e.getPoint());
         JMenuItem setTec = new JMenuItem("Alterar técnico");
-        setTec.addActionListener(ev -> {
-            Assignment.showTechnicianSelectionDialog(e.getComponent(), e.getXOnScreen(), e.getYOnScreen());
-        });
+        setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), row + 2));
         return setTec;
     }
 
@@ -368,6 +366,7 @@ public class Control extends JFrame {
     }
 
     private void saveToCSV(int ID,
+                           String tecnicianName,
                            String description,
                            String lobby,
                            String block,
@@ -378,8 +377,9 @@ public class Control extends JFrame {
 
         try (FileWriter fileWriter = new FileWriter(FILE_PATH, true);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
-            printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,0%n",
+            printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,0%n",
                     ID,
+                    tecnicianName,
                     description,
                     lobby,
                     block,
