@@ -90,18 +90,93 @@ public class Assignment extends JPanel {
 
     private void saveTechnicianToOS(int technicianId, int osId) {
         String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians_os.csv";
-        try (FileWriter fw = new FileWriter(fileName, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-            out.println(technicianId + "," + osId);
+        List<String[]> technicianOSList = new ArrayList<>();
 
-            OSTechnicianUpdater.updateOSWithTechnicianName();
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                technicianOSList.add(line.split(",", -1));
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo \"tecnicians_os.csv\".", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        boolean found = false;
+        for (String[] record : technicianOSList) {
+            if (record[1].equals(String.valueOf(osId))) {
+                record[0] = String.valueOf(technicianId);
+                found = true;
+                break;
+            }
+        }
 
+        if (!found) {
+            technicianOSList.add(new String[]{String.valueOf(technicianId), String.valueOf(osId)});
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+            for (String[] record : technicianOSList) {
+                bw.write(String.join(",", record));
+                bw.newLine();
+            }
+            updateOSWithTechnicianName(technicianId, osId);
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Erro ao associar o técnico à OS ou atualizar os.csv", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Erro ao salvar a associação no arquivo \"tecnicians_os.csv\".", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void updateOSWithTechnicianName(int technicianId, int osId) {
+        String technicianName = getTechnicianName(technicianId);
+        String osFileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+        List<String[]> osList = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(osFileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                osList.add(line.split(",", -1));
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo \"os.csv\".", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        boolean updated = false;
+        for (String[] record : osList) {
+            if (record[0].equals(String.valueOf(osId))) {
+                record[1] = technicianName;
+                updated = true;
+                break;
+            }
+        }
+
+        if (updated) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(osFileName))) {
+                for (String[] record : osList) {
+                    bw.write(String.join(",", record));
+                    bw.newLine();
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Erro ao atualizar o nome do técnico no arquivo \"os.csv\".", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private String getTechnicianName(int technicianId) {
+        String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians.csv";
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                if (Integer.parseInt(values[0]) == technicianId) {
+                    return values[1];
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo \"tecnicians.csv\".", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        return "";
+    }
+
 
     public static void showTechnicianSelectionDialog(Component parentComponent, int x, int y, int osId) {
         JDialog dialog = new JDialog((Frame) null, "", true);
