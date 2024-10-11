@@ -107,29 +107,25 @@ public class Register extends JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e) {
+                String name = nameInput.getText();
+                String email = emailInput.getText();
+                String password = new String(passwordInput.getPassword());
                 if(onRegister) {
-                    String name = nameInput.getText();
-                    String email = emailInput.getText();
-                    String password = new String(passwordInput.getPassword());
                     String lobby = (String) lobbyCB.getSelectedItem();
                     String block = (String) blockCB.getSelectedItem();
                     String apartment = (String) apartmentCB.getSelectedItem();
                     loginService.processRegistration(name, email, password, lobby, block, apartment, mainPanel);
                     changeToLogin();
                 } else {
-                    String name = nameInput.getText();
-                    String email = emailInput.getText();
-                    String password = new String(passwordInput.getPassword());
                     loginService.processLogin(email, password, mainPanel);
                     try {
-
                         if (loginService.isLoginValid(email, password)) {
                             dispose();
                             if(loginService.isAdminLogged()) {
                                 new Control(new Admin());
                             }
                             else{
-                                new Resident(name, email);
+                                new Control(new Resident(name, email));
                             }
                         }
                     } catch (IOException ex) {

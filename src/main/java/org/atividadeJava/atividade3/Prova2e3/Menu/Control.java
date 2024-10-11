@@ -61,8 +61,8 @@ public class Control extends JFrame {
         consultPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/consulte-Photoroom.png");
         historicPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/historico carinha sus-Photoroom.png");
         relatoryPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/geracao nao z-Photoroom.png");
-        notificationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/notification-icon.png");
-        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/user-icon.png");
+        notificationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Notificacion.png");
+        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/0809_Grêmio_Rio_Verde-removebg-preview.png");
         solicitationBackground = new RoundedPanel(90);
         consultBackground = new RoundedPanel(90);
         historicBackground = new RoundedPanel(90);

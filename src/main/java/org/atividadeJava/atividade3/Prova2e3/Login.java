@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Login {
 
-    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/records.csv";
+    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/users.csv";
     private static boolean adminLogged;
 
     public boolean isAdminLogged() {
@@ -125,6 +125,4 @@ public class Login {
     private void showMessage(String message, int messageType, JPanel mainPanel) {
         JOptionPane.showMessageDialog(mainPanel, message, "", messageType);
     }
-
-
 }
