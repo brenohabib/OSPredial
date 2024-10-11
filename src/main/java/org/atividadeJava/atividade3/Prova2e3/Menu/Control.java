@@ -333,7 +333,7 @@ public class Control extends JFrame {
     private JMenuItem getjMenuItem(MouseEvent e) {
         int row = OSTable.rowAtPoint(e.getPoint());
         JMenuItem setTec = new JMenuItem("Alterar técnico");
-        setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), row + 1));
+        setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(OSTable,e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), row + 1));
         return setTec;
     }
 
@@ -396,4 +396,5 @@ public class Control extends JFrame {
         idCB.addItem(Integer.toString(putID()));
         textArea1.setText("");
     }
+
 }

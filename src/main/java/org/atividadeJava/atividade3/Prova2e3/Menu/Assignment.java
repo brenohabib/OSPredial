@@ -1,5 +1,6 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
+import org.atividadeJava.atividade3.Prova2e3.Menu.Components.CustomTable;
 import org.atividadeJava.atividade3.Prova2e3.Tecnician;
 
 import javax.swing.*;
@@ -14,14 +15,16 @@ public class Assignment extends JPanel {
     private JPanel mainPanel;
     private JTable tecTable;
     private final int currentOSId;
+    private JTable historicTable;
 
-    public Assignment(int osId, JDialog dialog) {
+    public Assignment(JTable table,int osId, JDialog dialog) {
         this.currentOSId = osId;
         createUIComponents();
         JScrollPane scrollPane = new JScrollPane(tecTable);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
+        this.historicTable = table;
 
         addDoubleClickListener(dialog);
     }
@@ -83,6 +86,7 @@ public class Assignment extends JPanel {
                     int technicianId = (int) target.getValueAt(row, 0);
                     dialog.setVisible(false);
                     saveTechnicianToOS(technicianId, currentOSId);
+                    CustomTable.updateTable((CustomTable) historicTable, false);
                 }
             }
         });
@@ -177,10 +181,9 @@ public class Assignment extends JPanel {
         return "";
     }
 
-
-    public static void showTechnicianSelectionDialog(Component parentComponent, int x, int y, int osId) {
+    public static void showTechnicianSelectionDialog(JTable table,Component parentComponent, int x, int y, int osId) {
         JDialog dialog = new JDialog((Frame) null, "", true);
-        Assignment assignmentPanel = new Assignment(osId, dialog);
+        Assignment assignmentPanel = new Assignment(table,osId, dialog);
         dialog.setContentPane(assignmentPanel);
 
         assignmentPanel.addEscKeyBinding(dialog);
@@ -190,4 +193,5 @@ public class Assignment extends JPanel {
         dialog.setLocation(x, y);
         dialog.setVisible(true);
     }
+
 }
