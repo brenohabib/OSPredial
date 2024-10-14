@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Login {
 
-    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/users.csv";
+    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/users.csv";
     private static boolean adminLogged;
 
     public boolean isAdminLogged() {

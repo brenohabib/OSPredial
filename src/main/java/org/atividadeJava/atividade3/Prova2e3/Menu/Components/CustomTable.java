@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.List;
 
 public class CustomTable extends JTable {
-    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
     private static final String[] COLUMN_NAMES = {"ID", "Técnico", null, "Portaria", "Bloco", "Apartamento", "Prioridade", "Status", "Criado", "Atualizado"};
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0, 0);
     private static final Color GRID_COLOR = Color.decode("#B86E49");

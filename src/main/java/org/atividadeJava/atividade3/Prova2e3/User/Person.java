@@ -1,4 +1,4 @@
-package org.atividadeJava.atividade3.Prova2e3;
+package org.atividadeJava.atividade3.Prova2e3.User;
 
 public class Person {
     private int ID;

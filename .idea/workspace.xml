@@ -5,17 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.7">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/TimingFramework-0.55.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/java-swing-drawer.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/miglayout-4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/SideSlider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/User/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/CustomTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/CustomTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/notification-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/user-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/User/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Resident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/User/Resident.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/records.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/users.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians_os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians_os.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Tecnician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/User/Tecnician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/feedbacks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians_os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians_os.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +86,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/breno/OneDrive/Documentos/Estudos/Códigos/Gaby",
+    "last_opened_file_path": "C:/Users/breno/OneDrive/Documentos/Estudos/Códigos/OSPredial/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,18 +101,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\JAR\Drawer" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\Components" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
-      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\CSV" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\Components" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu" />
-      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.SGOS">
@@ -125,7 +134,7 @@
       <module name="atividade" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.*" />
+          <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.User.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -211,6 +220,9 @@
       <workItem from="1728338841078" duration="9168000" />
       <workItem from="1728384978706" duration="27000" />
       <workItem from="1728588017449" duration="7159000" />
+      <workItem from="1728667441820" duration="220000" />
+      <workItem from="1728685927331" duration="1196000" />
+      <workItem from="1728903582427" duration="2504000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />
@@ -324,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728654418519</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="v0.7">
+      <option name="closed" value="true" />
+      <created>1728667468332</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728667468332</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

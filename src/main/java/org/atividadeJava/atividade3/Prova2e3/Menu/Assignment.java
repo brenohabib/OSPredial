@@ -1,7 +1,7 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.CustomTable;
-import org.atividadeJava.atividade3.Prova2e3.Tecnician;
+import org.atividadeJava.atividade3.Prova2e3.User.Tecnician;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -61,7 +61,7 @@ public class Assignment extends JPanel {
 
     private List<Tecnician> readTechniciansFromCSV() {
         List<Tecnician> techs = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians.csv"))) {
             String line;
             br.readLine();
             while ((line = br.readLine()) != null) {
@@ -93,7 +93,7 @@ public class Assignment extends JPanel {
     }
 
     private void saveTechnicianToOS(int technicianId, int osId) {
-        String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians_os.csv";
+        String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians_os.csv";
         List<String[]> technicianOSList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -130,7 +130,7 @@ public class Assignment extends JPanel {
 
     private void updateOSWithTechnicianName(int technicianId, int osId) {
         String technicianName = getTechnicianName(technicianId);
-        String osFileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+        String osFileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
         List<String[]> osList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(osFileName))) {
@@ -165,7 +165,7 @@ public class Assignment extends JPanel {
     }
 
     private String getTechnicianName(int technicianId) {
-        String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/tecnicians.csv";
+        String fileName = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             br.readLine();

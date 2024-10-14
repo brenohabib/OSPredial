@@ -1,9 +1,9 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
-import org.atividadeJava.atividade3.Prova2e3.Admin;
+import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Login;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
-import org.atividadeJava.atividade3.Prova2e3.Resident;
+import org.atividadeJava.atividade3.Prova2e3.User.Resident;
 
 import javax.swing.*;
 import java.awt.*;

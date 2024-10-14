@@ -1,9 +1,9 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
-import org.atividadeJava.atividade3.Prova2e3.Admin;
+import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
-import org.atividadeJava.atividade3.Prova2e3.Person;
-import org.atividadeJava.atividade3.Prova2e3.Resident;
+import org.atividadeJava.atividade3.Prova2e3.User.Person;
+import org.atividadeJava.atividade3.Prova2e3.User.Resident;
 
 import javax.swing.*;
 import java.awt.*;
@@ -53,7 +53,7 @@ public class Control extends JFrame {
     private JLabel userLabel;
     private JLabel priorityLabel;
 
-    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/os.csv";
+    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
 
     private void createUIComponents() {
         logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
@@ -62,7 +62,7 @@ public class Control extends JFrame {
         historicPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/historico carinha sus-Photoroom.png");
         relatoryPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/geracao nao z-Photoroom.png");
         notificationPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Notificacion.png");
-        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/0809_Grêmio_Rio_Verde-removebg-preview.png");
+        userPanel = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/0809 Grêmio Rio Verde.png");
         solicitationBackground = new RoundedPanel(90);
         consultBackground = new RoundedPanel(90);
         historicBackground = new RoundedPanel(90);
