@@ -1,5 +1,8 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
+import javaswingdev.drawer.Drawer;
+import javaswingdev.drawer.DrawerController;
+import javaswingdev.drawer.DrawerItem;
 import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 import org.atividadeJava.atividade3.Prova2e3.User.Person;
@@ -30,8 +33,8 @@ public class Control extends JFrame {
     private JPanel consultBackground;
     private JPanel historicBackground;
     private JPanel relatoryBackground;
-    private JButton button1;
-    private JButton button2;
+    private JButton notificationButton;
+    private JButton accountMenu;
     private JPanel circlePanel;
     private JTextArea textArea1;
     private JButton backButton;
@@ -54,6 +57,7 @@ public class Control extends JFrame {
     private JLabel priorityLabel;
 
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
+    private final DrawerController drawer;
 
     private void createUIComponents() {
         logo = new ImagePanel("src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/images/Logo.png");
@@ -104,18 +108,28 @@ public class Control extends JFrame {
         scrollOSTable.setOpaque(false);
         scrollOSTable.getViewport().setOpaque(false);
         scrollOSTable.setBorder(BorderFactory.createEmptyBorder());
-        scrollOSTable.getVerticalScrollBar().setUI(new DarkScrollBarUI());
+        scrollOSTable.getVerticalScrollBar().setUI(new DarkScrollBarUI(Color.decode("#FCD1A2")));
 
         scrollHistoric.setOpaque(false);
         scrollHistoric.getViewport().setOpaque(false);
         scrollHistoric.setBorder(BorderFactory.createEmptyBorder());
-        scrollHistoric.getVerticalScrollBar().setUI(new DarkScrollBarUI());
+        scrollHistoric.getVerticalScrollBar().setUI(new DarkScrollBarUI(Color.decode("#FCD1A2")));
 
         userLabel.setText(user.getName());
         if (user instanceof Resident) {
             priorityLabel.setVisible(false);
             priorityCB.setVisible(false);
         }
+
+        drawer = Drawer.newDrawer(this)
+                .leftDrawer(false)
+                .addChild()
+                //.background(Color.decode("#ECB051"))
+                .drawerBackground(Color.decode("#F2F2C9"))
+                .drawerWidth(400)
+                .duration(200)
+                .addChild(new ScrollNotification())
+                .build();
 
         pack();
         setVisible(true);
@@ -329,6 +343,17 @@ public class Control extends JFrame {
 
         });
 
+        notificationButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (drawer.isShow()) {
+                    drawer.hide();
+                }
+                else {
+                    drawer.show();
+                }
+            }
+        });
     }
     private JMenuItem getjMenuItem(MouseEvent e) {
         int row = OSTable.rowAtPoint(e.getPoint());

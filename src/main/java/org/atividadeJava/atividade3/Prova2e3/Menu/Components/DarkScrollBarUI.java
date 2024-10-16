@@ -10,6 +10,16 @@ public class DarkScrollBarUI extends BasicScrollBarUI {
     private static final int ARC_HEIGHT = 20;
     private static final int MIN_THUMB_SIZE = 40;
     private static final int MAX_THUMB_SIZE = Integer.MAX_VALUE;
+    private Color backgroundColor;
+
+    public DarkScrollBarUI(Color backgroundColor) {
+        super();
+        setBackgroundColor(backgroundColor);
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 
     @Override
     protected void configureScrollBarColors() {
@@ -57,7 +67,7 @@ public class DarkScrollBarUI extends BasicScrollBarUI {
 
     @Override
     protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
-        g.setColor(Color.decode("#FCD1A2"));
+        g.setColor(backgroundColor);
         g.fillRect(trackBounds.x, trackBounds.y, trackBounds.width, trackBounds.height);
     }
 }
