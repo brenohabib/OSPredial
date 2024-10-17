@@ -17,9 +17,6 @@ public class notificationHeader extends JPanel {
     public notificationHeader(Person user) {
         OSNotificationEmailer emailer = new OSNotificationEmailer(user);
 
-        Thread thread = new Thread(emailer);
-        thread.start();
-
         mainPanel.add(text);
         text.setHorizontalAlignment(SwingConstants.CENTER);
         text.setVerticalAlignment(SwingConstants.CENTER);
@@ -46,11 +43,11 @@ public class notificationHeader extends JPanel {
             public void mouseReleased(MouseEvent e) {
                 sendEmailButton.setBackground(new Color(168, 207, 69));
             }
-        });
-        sendEmailButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                emailer.checkAndSendNotifications(user);
+                Thread thread = new Thread(emailer);
+                thread.start();
+                JOptionPane.showMessageDialog(null, "Email Enviado!", "" , JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }

@@ -16,7 +16,7 @@ import javax.mail.internet.*;
 public class OSNotificationEmailer implements Runnable {
     private static final String CSV_FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private Person user;
+    private final Person user;
 
     public OSNotificationEmailer(Person user) {
         this.user = user;
@@ -63,7 +63,7 @@ public class OSNotificationEmailer implements Runnable {
         content.append("Notificações de OS atrasadas:\n\n");
 
         for (String[] os : atrasadas) {
-            content.append(String.format("OS: %s, Cliente: %s, Data de Criação: %s, Status: %s\n",
+            content.append(String.format("OS: %s, Técnico: %s, Data de Criação: %s, Status: %s\n",
                     os[0], os[1], os[8], os[7]));
         }
 
