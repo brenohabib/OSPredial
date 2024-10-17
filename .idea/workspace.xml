@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/ScrollNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/notificationHeader.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/notificationHeader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/OSNotificationEmailer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/DarkScrollBarUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Components/DarkScrollBarUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/TimingFramework-0.55.jar" beforeDir="false" afterPath="$PROJECT_DIR$/local-maven-repo/TimingFramework-0.55.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/java-swing-drawer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/local-maven-repo/java-swing-drawer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/miglayout-4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/local-maven-repo/miglayout-4.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,41 +56,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Assignment.executor&quot;: &quot;Run&quot;,
-    &quot;Application.CustomComboBox.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoginSystem.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Register.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RegisterMenu.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Registrar.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RoundedPanelExample.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SGOS.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ScrollNotification.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Swing.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;294&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/OSPredial/src/main/java/org/atividadeJava/atividade3/Prova2e3/JAR/Drawer/TimingFramework-0.55.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Assignment.executor": "Run",
+    "Application.CustomComboBox.executor": "Run",
+    "Application.LoginSystem.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Register.executor": "Run",
+    "Application.RegisterMenu.executor": "Run",
+    "Application.Registrar.executor": "Run",
+    "Application.RoundedPanelExample.executor": "Run",
+    "Application.SGOS.executor": "Run",
+    "Application.ScrollNotification.executor": "Run",
+    "Application.Swing.executor": "Run",
+    "Application.sendMail.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "294",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/OSPredial/local-maven-repo/java-swing-drawer.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\Components" />
@@ -94,11 +105,11 @@
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\OSPredial\local-maven-repo" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\Components" />
       <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu\images" />
       <recent name="C:\Users\breno\OneDrive\Documentos\Estudos\Códigos\OSPredial\src\main\java\org\atividadeJava\atividade3\Prova2e3\Menu" />
-      <recent name="C:\Users\breno\Documentos\Estudos\Códigos\atividade\src\main\java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.SGOS">
@@ -108,6 +119,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.Menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MailSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.atividadeJava.atividade3.Prova2e3.MailSender" />
+      <module name="atividade" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,6 +168,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SGOS" />
+        <item itemvalue="Application.MailSender" />
         <item itemvalue="Application.ScrollNotification" />
         <item itemvalue="Application.Assignment" />
       </list>
@@ -223,7 +248,9 @@
       <workItem from="1729013024531" duration="284000" />
       <workItem from="1729028496138" duration="11000" />
       <workItem from="1729029942043" duration="7496000" />
-      <workItem from="1729118527903" duration="607000" />
+      <workItem from="1729118527903" duration="8386000" />
+      <workItem from="1729130677727" duration="611000" />
+      <workItem from="1729131634637" duration="2699000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />
@@ -337,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728654418519</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="v0.7">
+      <option name="closed" value="true" />
+      <created>1729119463301</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729119463301</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

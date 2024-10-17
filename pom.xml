@@ -21,6 +21,36 @@
             <artifactId>opencsv</artifactId>
             <version>5.7.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- Timing Framework -->
+        <dependency>
+            <groupId>org.jdesktop.animation</groupId>
+            <artifactId>timing-framework</artifactId>
+            <version>0.55</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/OSPredial/local-maven-repo/TimingFramework-0.55.jar</systemPath>
+        </dependency>
 
+        <!-- MiGLayout -->
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout</artifactId>
+            <version>4.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/OSPredial/local-maven-repo/miglayout-4.0.jar</systemPath>
+        </dependency>
+
+        <!-- Drawer -->
+        <dependency>
+            <groupId>com.drawer</groupId>
+            <artifactId>drawer</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/breno/Documentos/Estudos/Códigos/atividade/src/main/java/org/atividadeJava/atividade3/OSPredial/local-maven-repo/java-swing-drawer.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>

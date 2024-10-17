@@ -2,7 +2,6 @@ package org.atividadeJava.atividade3.Prova2e3.Menu;
 
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
-import javaswingdev.drawer.DrawerItem;
 import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 import org.atividadeJava.atividade3.Prova2e3.User.Person;
@@ -123,7 +122,7 @@ public class Control extends JFrame {
 
         drawer = Drawer.newDrawer(this)
                 .leftDrawer(false)
-                .addChild()
+                .addChild(new notificationHeader(user))
                 //.background(Color.decode("#ECB051"))
                 .drawerBackground(Color.decode("#F2F2C9"))
                 .drawerWidth(400)
@@ -353,6 +352,15 @@ public class Control extends JFrame {
                     drawer.show();
                 }
             }
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                backButton.setBackground(new Color(255, 91, 43));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                backButton.setBackground(new Color(255, 138, 102));
+            }
         });
     }
     private JMenuItem getjMenuItem(MouseEvent e) {
@@ -422,4 +430,7 @@ public class Control extends JFrame {
         textArea1.setText("");
     }
 
+    private void verifyOutdatedOS() {
+
+    }
 }
