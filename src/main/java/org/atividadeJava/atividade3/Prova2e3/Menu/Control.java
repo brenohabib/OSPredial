@@ -114,15 +114,18 @@ public class Control extends JFrame {
         scrollHistoric.setBorder(BorderFactory.createEmptyBorder());
         scrollHistoric.getVerticalScrollBar().setUI(new DarkScrollBarUI(Color.decode("#FCD1A2")));
 
+        NotificationHeader notification = new NotificationHeader(user);
+
         userLabel.setText(user.getName());
         if (user instanceof Resident) {
             priorityLabel.setVisible(false);
             priorityCB.setVisible(false);
+            notification.hideSendEmailButton();
         }
 
         drawer = Drawer.newDrawer(this)
                 .leftDrawer(false)
-                .addChild(new notificationHeader(user))
+                .addChild(notification)
                 //.background(Color.decode("#ECB051"))
                 .drawerBackground(Color.decode("#F2F2C9"))
                 .drawerWidth(400)
@@ -428,9 +431,5 @@ public class Control extends JFrame {
         idCB.removeAllItems();
         idCB.addItem(Integer.toString(putID()));
         textArea1.setText("");
-    }
-
-    private void verifyOutdatedOS() {
-
     }
 }

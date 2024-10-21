@@ -9,12 +9,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class notificationHeader extends JPanel {
+public class NotificationHeader extends JPanel {
     private JPanel mainPanel;
     private JLabel text;
     private JButton sendEmailButton;
 
-    public notificationHeader(Person user) {
+    public NotificationHeader(Person user) {
         OSNotificationEmailer emailer = new OSNotificationEmailer(user);
 
         mainPanel.add(text);
@@ -54,5 +54,9 @@ public class notificationHeader extends JPanel {
 
     private void createUIComponents() {
         sendEmailButton = new RoundedButton();
+    }
+
+    public void hideSendEmailButton() {
+        sendEmailButton.setVisible(false);
     }
 }

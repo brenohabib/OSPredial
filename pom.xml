@@ -38,18 +38,24 @@
             <groupId>org.jdesktop.animation</groupId>
             <artifactId>timing-framework</artifactId>
             <version>0.55</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/local-maven-repo/TimingFramework-0.55.jar</systemPath>
         </dependency>
         <!-- MiGLayout -->
         <dependency>
             <groupId>com.miglayout</groupId>
             <artifactId>miglayout</artifactId>
             <version>4.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/local-maven-repo/miglayout-4.0.jar</systemPath>
         </dependency>
         <!-- Drawer -->
         <dependency>
             <groupId>com.drawer</groupId>
             <artifactId>drawer</artifactId>
             <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/local-maven-repo/java-swing-drawer.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
