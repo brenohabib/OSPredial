@@ -56,7 +56,4 @@ public class NotificationHeader extends JPanel {
         sendEmailButton = new RoundedButton();
     }
 
-    public void hideSendEmailButton() {
-        sendEmailButton.setVisible(false);
-    }
 }

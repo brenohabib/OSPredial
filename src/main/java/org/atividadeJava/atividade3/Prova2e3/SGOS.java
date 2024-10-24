@@ -8,6 +8,6 @@ import org.atividadeJava.atividade3.Prova2e3.User.Resident;
 public class SGOS {
     public static void main(String[] args) {
         //new Register();
-        new Control(new Person("Name", "breno.oliveira@academico.unirv.edu.br"));
+        new Control(new Admin());
     }
 }

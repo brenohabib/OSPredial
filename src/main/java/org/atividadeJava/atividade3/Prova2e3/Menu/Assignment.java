@@ -15,7 +15,7 @@ public class Assignment extends JPanel {
     private JPanel mainPanel;
     private JTable tecTable;
     private final int currentOSId;
-    private JTable historicTable;
+    private final JTable historicTable;
 
     public Assignment(JTable table,int osId, JDialog dialog) {
         this.currentOSId = osId;

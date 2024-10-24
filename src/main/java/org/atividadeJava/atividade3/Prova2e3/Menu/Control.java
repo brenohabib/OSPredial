@@ -12,7 +12,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Control extends JFrame {
     private JPanel mainPanel;
@@ -120,7 +125,6 @@ public class Control extends JFrame {
         if (user instanceof Resident) {
             priorityLabel.setVisible(false);
             priorityCB.setVisible(false);
-            notification.hideSendEmailButton();
         }
 
         drawer = Drawer.newDrawer(this)
@@ -328,8 +332,9 @@ public class Control extends JFrame {
                     JMenuItem viewDetails = new JMenuItem("Detalhes");
 
                     if (user instanceof Admin) {
-                        JMenuItem setTec = getjMenuItem(e);
+                        JMenuItem setTec = getTecnicianAssignment(e);
                         popupMenu.add(setTec);
+                        popupMenu.add(finalizeMenuItem(e));
                     }
 
                     viewDetails.addActionListener(ev -> {
@@ -366,11 +371,47 @@ public class Control extends JFrame {
             }
         });
     }
-    private JMenuItem getjMenuItem(MouseEvent e) {
+    private JMenuItem getTecnicianAssignment(MouseEvent e) {
         int row = OSTable.rowAtPoint(e.getPoint());
         JMenuItem setTec = new JMenuItem("Alterar técnico");
         setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(OSTable,e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), row + 1));
         return setTec;
+    }
+    private JMenuItem finalizeMenuItem(MouseEvent e) {
+        int row = OSTable.rowAtPoint(e.getPoint());
+        JMenuItem finalize = new JMenuItem("Finalizar");
+        finalize.addActionListener(ev -> {
+            try {
+                Path path = Paths.get(FILE_PATH);
+                List<String> lines = Files.readAllLines(path);
+                if (row + 1 < lines.size()) {
+                    String[] columns = lines.get(row + 1).split(",");
+
+                    LocalDateTime now = LocalDateTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    String currentDate = now.format(formatter);
+
+                    columns[9] = currentDate;
+                    columns[10] = currentDate;
+
+                    String updatedLine = String.join(",", columns);
+                    lines.set(row + 1, updatedLine);
+
+                    Files.write(path, lines);
+
+                    CustomTable.updateTable((CustomTable) OSTable, false);
+
+                    JOptionPane.showMessageDialog(null, "OS finalizada com sucesso!");
+                }
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,
+                        "Erro ao finalizar OS: " + ex.getMessage(),
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        return finalize;
     }
 
     private int putID() {
