@@ -40,7 +40,7 @@ public class Control extends JFrame {
     private JButton notificationButton;
     private JButton accountMenu;
     private JPanel circlePanel;
-    private JTextArea textArea1;
+    private JTextArea descriptionTextField;
     private JButton backButton;
     private JButton confirmButton;
     private JComboBox<String> idCB;
@@ -243,7 +243,7 @@ public class Control extends JFrame {
         confirmButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                String description = textArea1.getText().trim().replaceAll("\\s+", " ");;
+                String description = descriptionTextField.getText().trim().replaceAll("\\s+", "\\\\n");;
                 String lobby = (String) lobbyCB.getSelectedItem();
                 String block = (String) blockCB.getSelectedItem();
                 String apartment = (String) apartmentCB.getSelectedItem();
@@ -391,6 +391,7 @@ public class Control extends JFrame {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     String currentDate = now.format(formatter);
 
+                    columns[7] = "Finalizado";
                     columns[9] = currentDate;
                     columns[10] = currentDate;
 
@@ -454,7 +455,7 @@ public class Control extends JFrame {
 
         try (FileWriter fileWriter = new FileWriter(FILE_PATH, true);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
-            printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,0%n",
+            printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,Não Finalizado%n",
                     ID,
                     tecnicianName,
                     description,
@@ -471,6 +472,6 @@ public class Control extends JFrame {
     private void updateScreen() {
         idCB.removeAllItems();
         idCB.addItem(Integer.toString(putID()));
-        textArea1.setText("");
+        descriptionTextField.setText("");
     }
 }

@@ -15,7 +15,7 @@ public class Assignment extends JPanel {
     private JPanel mainPanel;
     private JTable tecTable;
     private final int currentOSId;
-    private final JTable historicTable;
+    private final JTable table;
 
     public Assignment(JTable table,int osId, JDialog dialog) {
         this.currentOSId = osId;
@@ -24,7 +24,7 @@ public class Assignment extends JPanel {
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
-        this.historicTable = table;
+        this.table = table;
 
         addDoubleClickListener(dialog);
     }
@@ -86,7 +86,7 @@ public class Assignment extends JPanel {
                     int technicianId = (int) target.getValueAt(row, 0);
                     dialog.setVisible(false);
                     saveTechnicianToOS(technicianId, currentOSId);
-                    CustomTable.updateTable((CustomTable) historicTable, false);
+                    CustomTable.updateTable((CustomTable) table, false);
                 }
             }
         });

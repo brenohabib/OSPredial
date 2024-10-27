@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CustomTable extends JTable {
     private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
-    private static final String[] COLUMN_NAMES = {"ID", "Técnico", null, "Portaria", "Bloco", "Apartamento", "Prioridade", "Status", "Criado", "Atualizado"};
+    private static final String[] COLUMN_NAMES = {"ID", "Técnico", null, "Portaria", "Bloco", "Apartamento", "Prioridade", "Status", "Criado", "Atualizado", "Finalizado"};
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0, 0);
     private static final Color GRID_COLOR = Color.decode("#B86E49");
     private static final Color HEADER_BACKGROUND = Color.decode("#B86E49");
@@ -105,14 +105,29 @@ public class CustomTable extends JTable {
         DefaultTableModel model = new DefaultTableModel(data, COLUMN_NAMES);
         setModel(model);
 
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
-        setRowSorter(sorter);
-
-        setupSorters(sorter);
         removeColumn(getColumnModel().getColumn(2));
-
         resizeTableColumns();
     }
+
+    private static TableRowSorter<DefaultTableModel> getSorter(DefaultTableModel model) {
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+
+        RowFilter<DefaultTableModel, Integer> rowFilter = new RowFilter<>() {
+            @Override
+            public boolean include(Entry<? extends DefaultTableModel, ? extends Integer> entry) {
+                Object value = entry.getValue(10);
+                if (value == null) {
+                    return true;
+                }
+                String stringValue = value.toString();
+                return stringValue.equals("Não Finalizado");
+            }
+        };
+
+        sorter.setRowFilter(rowFilter);
+        return sorter;
+    }
+
     public static void updateTable(CustomTable table, boolean onlyFinished) {
         table.populateTable(onlyFinished);
     }
@@ -127,6 +142,10 @@ public class CustomTable extends JTable {
 
     private Comparator<String> createPriorityComparator() {
         List<String> priorities = Arrays.asList("Baixa", "Média", "Alta");
+        return getPriorityCompare(priorities);
+    }
+
+    private Comparator<String> getPriorityCompare(List<String> priorities) {
         return (o1, o2) -> {
             int index1 = (o1 == null) ? priorities.size() : priorities.indexOf(o1);
             int index2 = (o2 == null) ? priorities.size() : priorities.indexOf(o2);
@@ -136,11 +155,7 @@ public class CustomTable extends JTable {
 
     private Comparator<String> createStatusComparator() {
         List<String> statuses = Arrays.asList("Pendente", "Em Progresso", "Finalizado");
-        return (o1, o2) -> {
-            int index1 = (o1 == null) ? statuses.size() : statuses.indexOf(o1);
-            int index2 = (o2 == null) ? statuses.size() : statuses.indexOf(o2);
-            return Integer.compare(index1, index2);
-        };
+        return getPriorityCompare(statuses);
     }
 
     private Comparator<String> createDateComparator() {

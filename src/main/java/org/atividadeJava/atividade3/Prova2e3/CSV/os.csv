@@ -1,6 +1,2 @@
 ID,tecnician,description,lobby,block,apartment,priority,status,created_at,updated_at,finalized_at
-1,Wander,mamamia,Portaria Principal,1,101,Baixa,Pendente,10/10/2024,24/10/2024,0
-2,Gusta,testando,Portaria Principal,1,101,Baixa,Pendente,10/10/2024,24/10/2024,0
-3,Wander,lapada,Portaria Principal,1,101,Baixa,Pendente,10/10/2024,24/10/2024,0
-4,Gusta,a,Portaria Principal,1,101,Baixa,Pendente,11/10/2024,11/10/2024,0
-5,,puuuta,Portaria Principal,1,101,Baixa,Pendente,24/10/2024,24/10/2024,0
+1,Wander,test,Portaria Principal,1,101,Baixa,Finalizado,27/10/2024,27/10/2024,27/10/2024
