@@ -1,5 +1,6 @@
 package org.atividadeJava.atividade3.Prova2e3.Menu;
 
+import com.opencsv.exceptions.CsvValidationException;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import org.atividadeJava.atividade3.Prova2e3.User.Admin;
@@ -8,6 +9,8 @@ import org.atividadeJava.atividade3.Prova2e3.User.Person;
 import org.atividadeJava.atividade3.Prova2e3.User.Resident;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -60,7 +63,8 @@ public class Control extends JFrame {
     private JLabel userLabel;
     private JLabel priorityLabel;
 
-    private static final String FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
+    private static final String OS_FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
+    private static final String FEEDBACK_FILE_PATH = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv";
     private final DrawerController drawer;
 
     private void createUIComponents() {
@@ -200,6 +204,14 @@ public class Control extends JFrame {
                 backButton.setVisible(true);
                 serviceHistoricPanel.setVisible(true);
                 CustomTable.updateTable((CustomTable) historicTable, true);
+                try {
+                    addStarColumn(historicTable, "Estrelas");
+                } catch (CsvValidationException | IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                hideColumn(historicTable, 2);
+                hideColumn(historicTable, 5);
+                hideColumn(historicTable, 7);
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -374,7 +386,8 @@ public class Control extends JFrame {
     private JMenuItem getTecnicianAssignment(MouseEvent e) {
         int row = OSTable.rowAtPoint(e.getPoint());
         JMenuItem setTec = new JMenuItem("Alterar técnico");
-        setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(OSTable,e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), row + 1));
+        String idOS = OSTable.getValueAt(row, 0).toString();
+        setTec.addActionListener(ev -> Assignment.showTechnicianSelectionDialog(OSTable,e.getComponent(), e.getXOnScreen(), e.getYOnScreen(), Integer.parseInt(idOS)));
         return setTec;
     }
     private JMenuItem finalizeMenuItem(MouseEvent e) {
@@ -382,27 +395,32 @@ public class Control extends JFrame {
         JMenuItem finalize = new JMenuItem("Finalizar");
         finalize.addActionListener(ev -> {
             try {
-                Path path = Paths.get(FILE_PATH);
+                String idOS = OSTable.getValueAt(row, 0).toString();
+
+                Path path = Paths.get(OS_FILE_PATH);
                 List<String> lines = Files.readAllLines(path);
-                if (row + 1 < lines.size()) {
-                    String[] columns = lines.get(row + 1).split(",");
 
-                    LocalDateTime now = LocalDateTime.now();
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    String currentDate = now.format(formatter);
+                for (int i = 1; i < lines.size(); i++) {
+                    String[] columns = lines.get(i).split(",");
 
-                    columns[7] = "Finalizado";
-                    columns[9] = currentDate;
-                    columns[10] = currentDate;
+                    if (columns[0].equals(idOS)) {
+                        LocalDateTime now = LocalDateTime.now();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        String currentDate = now.format(formatter);
 
-                    String updatedLine = String.join(",", columns);
-                    lines.set(row + 1, updatedLine);
+                        columns[7] = "Finalizado";
+                        columns[9] = currentDate;
+                        columns[10] = currentDate;
 
-                    Files.write(path, lines);
+                        String updatedLine = String.join(",", columns);
+                        lines.set(i, updatedLine);
 
-                    CustomTable.updateTable((CustomTable) OSTable, false);
+                        Files.write(path, lines);
+                        CustomTable.updateTable((CustomTable) OSTable, false);
 
-                    JOptionPane.showMessageDialog(null, "OS finalizada com sucesso!");
+                        JOptionPane.showMessageDialog(null, "OS finalizada com sucesso!");
+                        break;
+                    }
                 }
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,
@@ -415,9 +433,37 @@ public class Control extends JFrame {
         return finalize;
     }
 
+    public static void hideColumn(JTable table, int columnIndex) {
+        TableColumn column = table.getColumnModel().getColumn(columnIndex);
+        table.getColumnModel().removeColumn(column);
+    }
+
+    public static void addStarColumn(JTable table, String columnName) throws CsvValidationException, IOException {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int rowCount = model.getRowCount();
+
+        FeedbackStar.readCSVAndCalculateAverages(FEEDBACK_FILE_PATH);
+
+        model.addColumn(columnName);
+
+        for (int i = 0; i < rowCount; i++) {
+            Object osIdObj = model.getValueAt(i, 0);
+            if (osIdObj != null) {
+                int osId = Integer.parseInt(osIdObj.toString());
+                float starAverage = FeedbackStar.getAverageStars(osId);
+                model.setValueAt(starAverage, i, model.getColumnCount() - 1);
+            }
+        }
+
+        TableColumn starColumn = table.getColumnModel().getColumn(model.getColumnCount() - 1);
+        starColumn.setCellRenderer(new FeedbackStar(table));
+
+        starColumn.setPreferredWidth(100);
+    }
+
     private int putID() {
         int maiorId = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(OS_FILE_PATH))) {
             String linha;
             boolean primeiraLinha = true;
             while ((linha = reader.readLine()) != null) {
@@ -453,7 +499,7 @@ public class Control extends JFrame {
                            LocalDateTime createdAt,
                            LocalDateTime updatedAt) throws IOException {
 
-        try (FileWriter fileWriter = new FileWriter(FILE_PATH, true);
+        try (FileWriter fileWriter = new FileWriter(OS_FILE_PATH, true);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
             printWriter.printf("%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,Não Finalizado%n",
                     ID,
