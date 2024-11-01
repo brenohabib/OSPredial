@@ -20,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Control extends JFrame {
@@ -362,6 +363,211 @@ public class Control extends JFrame {
 
         });
 
+        historicTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
+            }
+
+            private void showPopup(MouseEvent e) {
+                int row = historicTable.rowAtPoint(e.getPoint());
+                if (row != -1) {
+                    historicTable.setRowSelectionInterval(row, row);
+
+                    JPopupMenu popupMenu = new JPopupMenu();
+
+                    JMenuItem viewDetails = new JMenuItem("Detalhes");
+                    viewDetails.addActionListener(ev -> {
+                        Object rowData = historicTable.getValueAt(row, 0);
+                        System.out.println("View details for row: " + rowData);
+                    });
+
+                    String status = historicTable.getValueAt(row, 7).toString();
+                    if ("Finalizado".equals(status)) {
+                        JMenuItem addFeedback = feedbackMenuItem(e);
+                        popupMenu.add(addFeedback);
+                    }
+
+                    popupMenu.add(viewDetails);
+
+                    if (user instanceof Admin) {
+                        JMenuItem reopenOS = getReopenOSMenuItem(row);
+                        popupMenu.add(reopenOS);
+                        popupMenu.add(feedbackMenuItem(e));
+                    }
+
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+
+            private JMenuItem getReopenOSMenuItem(int row) {
+                JMenuItem reopenOS = new JMenuItem("Reabrir OS");
+                reopenOS.addActionListener(ev -> {
+                    try {
+                        reopenHistoricOS(row);
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,
+                                "Erro ao reabrir OS: " + ex.getMessage(),
+                                "Erro",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                });
+                return reopenOS;
+            }
+
+            private void reopenHistoricOS(int row) throws IOException {
+                String idOS = historicTable.getValueAt(row, 0).toString();
+
+                Path path = Paths.get(OS_FILE_PATH);
+                List<String> lines = Files.readAllLines(path);
+
+                for (int i = 1; i < lines.size(); i++) {
+                    String[] columns = lines.get(i).split(",");
+
+                    if (columns[0].equals(idOS)) {
+                        columns[7] = "Em Andamento";
+                        columns[10] = "";
+
+                        String updatedLine = String.join(",", columns);
+                        lines.set(i, updatedLine);
+
+                        Files.write(path, lines);
+
+                        CustomTable.updateTable((CustomTable) OSTable, false);
+                        CustomTable.updateTable((CustomTable) historicTable, true);
+
+                        JOptionPane.showMessageDialog(null,
+                                "OS reaberta com sucesso!",
+                                "Sucesso",
+                                JOptionPane.INFORMATION_MESSAGE);
+
+
+                        break;
+                    }
+                }
+            }
+
+            private void updateStarCell(JTable table, int osId) throws IOException, CsvValidationException {
+                FeedbackStar.readCSVAndCalculateAverages(FEEDBACK_FILE_PATH);
+
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                int rowCount = model.getRowCount();
+                int starColumn = model.getColumnCount() - 1;
+
+                for (int i = 0; i < rowCount; i++) {
+                    Object currentOsId = model.getValueAt(i, 0);
+                    if (currentOsId != null && currentOsId.toString().equals(String.valueOf(osId))) {
+                        float starAverage = FeedbackStar.getAverageStars(osId);
+
+                        model.setValueAt(starAverage, i, starColumn);
+
+                        Rectangle cellRect = table.getCellRect(i, starColumn, true);
+                        table.repaint(cellRect);
+                        break;
+                    }
+                }
+            }
+
+            private JMenuItem feedbackMenuItem(MouseEvent e) {
+                int row = historicTable.rowAtPoint(e.getPoint());
+                JMenuItem feedback = new JMenuItem("Adicionar Feedback");
+
+                feedback.addActionListener(ev -> {
+                    try {
+                        String idOS = historicTable.getValueAt(row, 0).toString();
+
+                        Path feedbackPath = Paths.get(FEEDBACK_FILE_PATH);
+
+
+                        JPanel feedbackPanel = new JPanel(new GridLayout(2, 1, 5, 5));
+
+                        JPanel starsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+                        JLabel starsLabel = new JLabel("Avaliação (1-5 estrelas):");
+                        SpinnerNumberModel spinnerModel = new SpinnerNumberModel(5.0, 1.0, 5.0, 1.0);
+                        JSpinner starsSpinner = new JSpinner(spinnerModel);
+                        starsPanel.add(starsLabel);
+                        starsPanel.add(starsSpinner);
+
+                        JPanel commentPanel = new JPanel(new BorderLayout());
+                        JLabel commentLabel = new JLabel("Comentário:");
+                        JTextArea commentArea = new JTextArea(3, 20);
+                        commentArea.setLineWrap(true);
+                        commentArea.setWrapStyleWord(true);
+                        JScrollPane scrollPane = new JScrollPane(commentArea);
+                        commentPanel.add(commentLabel, BorderLayout.NORTH);
+                        commentPanel.add(scrollPane, BorderLayout.CENTER);
+
+                        feedbackPanel.add(starsPanel);
+                        feedbackPanel.add(commentPanel);
+
+                        int result = JOptionPane.showConfirmDialog(null,
+                                feedbackPanel,
+                                "Adicionar Feedback",
+                                JOptionPane.OK_CANCEL_OPTION,
+                                JOptionPane.PLAIN_MESSAGE);
+
+                        if (result == JOptionPane.OK_OPTION) {
+                            double stars = (Double) starsSpinner.getValue();
+                            String comment = commentArea.getText().trim();
+
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            String currentDate = now.format(formatter);
+
+                            String feedbackLine = String.format("%d,%s,%.1f,\"%s\",%s",
+                                    getNextFeedbackId(),
+                                    idOS,
+                                    stars,
+                                    comment.replace("\"", "\"\""),
+                                    currentDate);
+
+                            List<String> feedbackLines = new ArrayList<>();
+
+                            if (Files.exists(feedbackPath)) {
+                                feedbackLines = Files.readAllLines(feedbackPath);
+                            } else {
+                                feedbackLines.add("id,osId,stars,comment,date");
+                            }
+
+                            feedbackLines.add(feedbackLine);
+                            Files.write(feedbackPath, feedbackLines);
+
+                            try {
+                                FeedbackStar.readCSVAndCalculateAverages(FEEDBACK_FILE_PATH);
+                                CustomTable.updateTable((CustomTable) OSTable, false);
+
+                                JOptionPane.showMessageDialog(null,
+                                        "Feedback adicionado com sucesso!",
+                                        "Sucesso",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                                        updateStarCell(historicTable, Integer.parseInt(idOS));
+
+                            } catch (CsvValidationException ex) {
+                                throw new IOException("Erro ao processar arquivo CSV", ex);
+                            }
+                        }
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,
+                                "Erro ao adicionar feedback: " + ex.getMessage(),
+                                "Erro",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                });
+
+                return feedback;
+            }
+        });
+
+
         notificationButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -459,6 +665,26 @@ public class Control extends JFrame {
         starColumn.setCellRenderer(new FeedbackStar(table));
 
         starColumn.setPreferredWidth(100);
+    }
+
+    private long getNextFeedbackId() throws IOException {
+        Path feedbackPath = Paths.get(FEEDBACK_FILE_PATH);
+        if (!Files.exists(feedbackPath)) {
+            return 1L;
+        }
+
+        List<String> lines = Files.readAllLines(feedbackPath);
+        if (lines.size() <= 1) {
+            return 1L;
+        }
+
+        String lastLine = lines.get(lines.size() - 1);
+        String[] columns = lastLine.split(",");
+        try {
+            return Long.parseLong(columns[0]) + 1;
+        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            return lines.size();
+        }
     }
 
     private int putID() {
