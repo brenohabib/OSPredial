@@ -1,2 +1,5 @@
 ID,tecnician,description,lobby,block,apartment,priority,status,created_at,updated_at,finalized_at
 1,,mm,Portaria Principal,1,101,Baixa,Finalizado,31/10/2024,31/10/2024,31/10/2024
+2,Wander,bla\nbla\nbla,Portaria Principal,1,101,Baixa,Pendente,03/11/2024,3/11/2024,Não Finalizado
+3,,mm,Portaria Principal,1,101,Baixa,Pendente,03/11/2024,3/11/2024,Não Finalizado
+4,,mmmm,Portaria Principal,1,101,Baixa,Pendente,03/11/2024,03/11/2024,Não Finalizado

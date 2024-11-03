@@ -736,8 +736,8 @@ public class Control extends JFrame {
                     apartment,
                     priority,
                     "Pendente",
-                    createdAt.getDayOfMonth() +"/"+createdAt.getMonthValue() +"/"+ createdAt.getYear(),
-                    updatedAt.getDayOfMonth() +"/"+ updatedAt.getMonthValue() +"/"+ updatedAt.getYear());
+                    String.format("%02d/%02d/%d", createdAt.getDayOfMonth(), createdAt.getMonthValue(), createdAt.getYear()),
+                    String.format("%02d/%02d/%d", createdAt.getDayOfMonth(), createdAt.getMonthValue(), createdAt.getYear()));
         }
     }
 
