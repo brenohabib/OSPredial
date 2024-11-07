@@ -346,7 +346,6 @@ public class Control extends JFrame {
                     OSTable.setRowSelectionInterval(row, row);
 
                     JPopupMenu popupMenu = new JPopupMenu();
-                    JMenuItem viewDetails = new JMenuItem("Detalhes");
 
                     if (user instanceof Admin) {
                         JMenuItem setTec = getTecnicianAssignment(e);
@@ -354,11 +353,7 @@ public class Control extends JFrame {
                         popupMenu.add(finalizeMenuItem(e));
                     }
 
-                    viewDetails.addActionListener(ev -> {
-                        Object rowData = OSTable.getValueAt(row, 0);
-                        System.out.println("View details for row: " + rowData);
-                        showDescription((Integer) rowData);
-                    });
+                    JMenuItem viewDetails = getDetails(row);
 
                     popupMenu.add(viewDetails);
 
@@ -389,19 +384,7 @@ public class Control extends JFrame {
 
                     JPopupMenu popupMenu = new JPopupMenu();
 
-                    JMenuItem viewDetails = new JMenuItem("Detalhes");
-                    viewDetails.addActionListener(ev -> {
-                        Object rowData = historicTable.getValueAt(row, 0);
-
-                        try {
-                            int osId = Integer.parseInt(rowData.toString());
-                            System.out.println("View details for row: " + osId);
-                            showDescription(osId);
-                        } catch (NumberFormatException exception) {
-                            System.err.println("Erro: O valor da célula não é um número inteiro.");
-                        }
-                    });
-
+                    JMenuItem viewDetails = getDetails(row);
 
                     String status = historicTable.getValueAt(row, 7).toString();
                     if ("Finalizado".equals(status)) {
@@ -610,6 +593,23 @@ public class Control extends JFrame {
             }
         });
     }
+
+    private JMenuItem getDetails(int row) {
+        JMenuItem viewDetails = new JMenuItem("Detalhes");
+        viewDetails.addActionListener(ev -> {
+            Object rowData = historicTable.getValueAt(row, 0);
+
+            try {
+                int osId = Integer.parseInt(rowData.toString());
+                System.out.println("View details for row: " + osId);
+                showDescription(osId);
+            } catch (NumberFormatException exception) {
+                System.err.println("Erro: O valor da célula não é um número inteiro.");
+            }
+        });
+        return viewDetails;
+    }
+
     private JMenuItem getTecnicianAssignment(MouseEvent e) {
         int row = OSTable.rowAtPoint(e.getPoint());
         JMenuItem setTec = new JMenuItem("Alterar técnico");
