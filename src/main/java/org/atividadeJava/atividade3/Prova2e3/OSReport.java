@@ -9,7 +9,7 @@ public class OSReport extends JFrame {
     public OSReport(List<OS> osList, List<Feedback> feedbackList) {
         setTitle("Relatório de Ordens de Serviço");
         setSize(800, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 
         String[] columns = {"ID", "Técnico", "Descrição", "Prioridade", "Status", "Data de Criação", "Estrelas", "Feedback"};
@@ -35,15 +35,6 @@ public class OSReport extends JFrame {
 
         JTable table = new JTable(model);
         add(new JScrollPane(table), BorderLayout.CENTER);
-    }
-
-    public static void main(String[] args) {
-        List<OS> osList = CSVReader.readOSFile("src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv");
-        List<Feedback> feedbackList = CSVReader.readFeedbackFile("src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv");
-
-        SwingUtilities.invokeLater(() -> {
-            OSReport report = new OSReport(osList, feedbackList);
-            report.setVisible(true);
-        });
+        pack();
     }
 }

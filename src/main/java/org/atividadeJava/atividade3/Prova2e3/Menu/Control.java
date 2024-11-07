@@ -4,6 +4,9 @@ import com.opencsv.exceptions.CsvValidationException;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
 import org.atividadeJava.atividade3.Prova2e3.CSVReader;
+import org.atividadeJava.atividade3.Prova2e3.Feedback;
+import org.atividadeJava.atividade3.Prova2e3.OS;
+import org.atividadeJava.atividade3.Prova2e3.OSReport;
 import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 import org.atividadeJava.atividade3.Prova2e3.User.Person;
@@ -592,6 +595,18 @@ public class Control extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 backButton.setBackground(new Color(255, 138, 102));
+            }
+        });
+        relatoryButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                List<OS> osList = CSVReader.readOSFile("src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv");
+                List<Feedback> feedbackList = CSVReader.readFeedbackFile("src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv");
+
+                SwingUtilities.invokeLater(() -> {
+                    OSReport report = new OSReport(osList, feedbackList);
+                    report.setVisible(true);
+                });
             }
         });
     }
