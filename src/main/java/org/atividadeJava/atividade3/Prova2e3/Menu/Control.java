@@ -3,6 +3,7 @@ package org.atividadeJava.atividade3.Prova2e3.Menu;
 import com.opencsv.exceptions.CsvValidationException;
 import javaswingdev.drawer.Drawer;
 import javaswingdev.drawer.DrawerController;
+import org.atividadeJava.atividade3.Prova2e3.CSVReader;
 import org.atividadeJava.atividade3.Prova2e3.User.Admin;
 import org.atividadeJava.atividade3.Prova2e3.Menu.Components.*;
 import org.atividadeJava.atividade3.Prova2e3.User.Person;
@@ -353,6 +354,7 @@ public class Control extends JFrame {
                     viewDetails.addActionListener(ev -> {
                         Object rowData = OSTable.getValueAt(row, 0);
                         System.out.println("View details for row: " + rowData);
+                        showDescription((Integer) rowData);
                     });
 
                     popupMenu.add(viewDetails);
@@ -360,7 +362,6 @@ public class Control extends JFrame {
                     popupMenu.show(e.getComponent(), e.getX(), e.getY());
                 }
             }
-
         });
 
         historicTable.addMouseListener(new MouseAdapter() {
@@ -388,8 +389,16 @@ public class Control extends JFrame {
                     JMenuItem viewDetails = new JMenuItem("Detalhes");
                     viewDetails.addActionListener(ev -> {
                         Object rowData = historicTable.getValueAt(row, 0);
-                        System.out.println("View details for row: " + rowData);
+
+                        try {
+                            int osId = Integer.parseInt(rowData.toString());
+                            System.out.println("View details for row: " + osId);
+                            showDescription(osId);
+                        } catch (NumberFormatException exception) {
+                            System.err.println("Erro: O valor da célula não é um número inteiro.");
+                        }
                     });
+
 
                     String status = historicTable.getValueAt(row, 7).toString();
                     if ("Finalizado".equals(status)) {
@@ -435,7 +444,7 @@ public class Control extends JFrame {
 
                     if (columns[0].equals(idOS)) {
                         columns[7] = "Em Andamento";
-                        columns[10] = "";
+                        columns[10] = "Não Finalizado";
 
                         String updatedLine = String.join(",", columns);
                         lines.set(i, updatedLine);
@@ -449,8 +458,6 @@ public class Control extends JFrame {
                                 "OS reaberta com sucesso!",
                                 "Sucesso",
                                 JOptionPane.INFORMATION_MESSAGE);
-
-
                         break;
                     }
                 }
@@ -566,8 +573,7 @@ public class Control extends JFrame {
                 return feedback;
             }
         });
-
-
+        
         notificationButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -737,7 +743,7 @@ public class Control extends JFrame {
                     priority,
                     "Pendente",
                     String.format("%02d/%02d/%d", createdAt.getDayOfMonth(), createdAt.getMonthValue(), createdAt.getYear()),
-                    String.format("%02d/%02d/%d", createdAt.getDayOfMonth(), createdAt.getMonthValue(), createdAt.getYear()));
+                    String.format("%02d/%02d/%d", updatedAt.getDayOfMonth(), updatedAt.getMonthValue(), updatedAt.getYear()));
         }
     }
 
@@ -745,5 +751,29 @@ public class Control extends JFrame {
         idCB.removeAllItems();
         idCB.addItem(Integer.toString(putID()));
         descriptionTextField.setText("");
+    }
+
+    private void showDescription(int osId) {
+        String filePath = "src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv";
+        String descricao = CSVReader.getDescriptionById(filePath, osId);
+
+        descricao = descricao.replace("\\n", "<br>");
+
+        JFrame frame = new JFrame("Ordem de Serviço");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        ScrollPane scrollPane = new ScrollPane();
+
+        JLabel labelDescricao = new JLabel("<html>" + descricao + "</html>");
+        labelDescricao.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.add(labelDescricao, BorderLayout.WEST);
+        frame.add(panel);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

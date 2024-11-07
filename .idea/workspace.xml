@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d0f450e-5353-4aea-826f-88e29d72ebe9" name="Changes" comment="v0.9">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSVReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Feedback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/OS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/OSReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/feedbacks.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/os.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians_os.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/CSV/tecnicians_os.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/Menu/Control.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/atividadeJava/atividade3/Prova2e3/SGOS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +37,12 @@
     &quot;assignee&quot;: &quot;brenohabib&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/brenohabib/OSPredial.git",
-    "accountId": "2929b186-76b3-4e11-a73a-1df89ebcef06"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/brenohabib/OSPredial.git&quot;,
+    &quot;accountId&quot;: &quot;6ace1986-d776-4268-8c85-fbad647440b9&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -58,6 +62,7 @@
     &quot;Application.FeedbackStarDrawer.executor&quot;: &quot;Run&quot;,
     &quot;Application.LoginSystem.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OSReport.executor&quot;: &quot;Run&quot;,
     &quot;Application.Register.executor&quot;: &quot;Run&quot;,
     &quot;Application.RegisterMenu.executor&quot;: &quot;Run&quot;,
     &quot;Application.Registrar.executor&quot;: &quot;Run&quot;,
@@ -88,7 +93,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -122,12 +127,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeedbackStar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.atividadeJava.atividade3.Prova2e3.Menu.Components.FeedbackStar" />
+    <configuration name="MailSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.atividadeJava.atividade3.Prova2e3.MailSender" />
       <module name="atividade" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.Menu.Components.*" />
+          <option name="PATTERN" value="org.atividadeJava.atividade3.Prova2e3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,8 +140,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MailSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.atividadeJava.atividade3.Prova2e3.MailSender" />
+    <configuration name="OSReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.atividadeJava.atividade3.Prova2e3.OSReport" />
       <module name="atividade" />
       <extension name="coverage">
         <pattern>
@@ -177,6 +182,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SGOS" />
+        <item itemvalue="Application.OSReport" />
         <item itemvalue="Application.MailSender" />
         <item itemvalue="Application.ScrollNotification" />
         <item itemvalue="Application.Assignment" />
@@ -186,8 +192,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -269,6 +275,12 @@
       <workItem from="1730332987280" duration="2000" />
       <workItem from="1730371927138" duration="7430000" />
       <workItem from="1730649707305" duration="1034000" />
+      <workItem from="1730759187434" duration="126000" />
+      <workItem from="1730761846256" duration="554000" />
+      <workItem from="1730827355365" duration="1678000" />
+      <workItem from="1730934383449" duration="1998000" />
+      <workItem from="1730979213746" duration="1549000" />
+      <workItem from="1730998019416" duration="712000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <option name="closed" value="true" />
